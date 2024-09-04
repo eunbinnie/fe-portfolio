@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: '이은빈 포트폴리오',
-  description: '프론트엔드 지원자 이은빈의 포트폴리오입니다.',
+  title: '이은빈 | 프론트엔드 개발자 포트폴리오',
+  description: '신입 프론트엔드 개발자 이은빈의 포트폴리오입니다.',
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body className="mx-auto max-w-[1200px] bg-black px-6">{children}</body>
     </html>
   );
 }
