@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { getRandomNumber, getRandomPrimeNumber } from '@/utils/getRandomNumber';
 
-import getRandomNumber from '@/utils/getRandomNumber';
 import Star from './Star';
 
 const StarContainer = () => {
-  const arr = Array.from({ length: 20 });
+  const arr = Array.from({ length: 15 });
 
   return (
     <motion.div
@@ -18,10 +18,11 @@ const StarContainer = () => {
       {arr.map((item, idx) => (
         <Star
           key={idx}
-          size={getRandomNumber(50, 150)}
+          size={getRandomNumber(70, 130)}
           top={getRandomNumber(0, 100)}
           left={getRandomNumber(0, 100)}
           blur={getRandomNumber(0, 1)}
+          delay={getRandomPrimeNumber(1, 2)}
         />
       ))}
     </motion.div>
