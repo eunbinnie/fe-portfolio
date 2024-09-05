@@ -4,9 +4,19 @@ import { motion } from 'framer-motion';
 import { getRandomNumber, getRandomPrimeNumber } from '@/utils/getRandomNumber';
 
 import Star from './Star';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const StarContainer = () => {
-  const arr = Array.from({ length: 15 });
+  const arr = Array.from({ length: 10 });
+  const windowSize = useWindowSize();
+
+  const getNumberRange = () => {
+    if (windowSize < 424) {
+      return getRandomNumber(70, 100);
+    } else {
+      return getRandomNumber(70, 150);
+    }
+  };
 
   return (
     <motion.div
@@ -18,10 +28,9 @@ const StarContainer = () => {
       {arr.map((item, idx) => (
         <Star
           key={idx}
-          size={getRandomNumber(70, 130)}
+          size={getNumberRange()}
           top={getRandomNumber(0, 100)}
           left={getRandomNumber(0, 100)}
-          blur={getRandomNumber(0, 1)}
           delay={getRandomPrimeNumber(1, 2)}
         />
       ))}
