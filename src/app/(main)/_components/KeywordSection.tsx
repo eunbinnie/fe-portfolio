@@ -37,7 +37,7 @@ const KeywordSection = () => {
         </h2>
         <div className="flex w-screen items-center justify-center">
           <div className="group flex w-fit overflow-hidden">
-            <div className="flex animate-infinite-slide-original gap-4 pr-8 will-change-transform md:gap-8">
+            <div className="flex animate-infinite-slide-original gap-4 pr-4 md:gap-8 md:pr-8">
               {KEYWORD.map((word, idx) => (
                 <Button
                   key={idx}
@@ -49,7 +49,7 @@ const KeywordSection = () => {
                 </Button>
               ))}
             </div>
-            <div className="flex animate-infinite-slide-copy gap-4 pr-8 will-change-transform md:gap-8">
+            <div className="flex animate-infinite-slide-copy gap-4 pr-4 md:gap-8 md:pr-8">
               {KEYWORD.map((word, idx) => (
                 <Button
                   key={idx}
