@@ -12,4 +12,12 @@
     color: transparent;
     text-shadow: 0 0 10px rgba(255, 255, 255, 1);
   }
+
+  .group:hover .animate-infinite-slide-original {
+    animation-play-state: paused;
+  }
+
+  .group:hover .animate-infinite-slide-copy {
+    animation-play-state: paused;
+  }
 }

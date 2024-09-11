@@ -8,11 +8,10 @@ interface StarProps {
   top: number;
   left: number;
   size: number;
-  blur: number;
   delay: number;
 }
 
-const Star = ({ top, left, size, blur, delay }: StarProps) => {
+const Star = ({ top, left, size, delay }: StarProps) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -31,7 +30,6 @@ const Star = ({ top, left, size, blur, delay }: StarProps) => {
             height: `${size}px`,
             top: `${top}%`,
             left: `${left}%`,
-            filter: `blur(${blur}px)`,
           }}
           initial={{ opacity: 0.4 }}
           animate={{ opacity: [1, 0.4, 1] }}

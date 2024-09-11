@@ -14,7 +14,7 @@ const StarContainer = () => {
     if (windowSize < 424) {
       return getRandomNumber(50, 100);
     } else {
-      return getRandomNumber(70, 150);
+      return getRandomNumber(70, 130);
     }
   };
 
@@ -31,7 +31,6 @@ const StarContainer = () => {
           size={getNumberRange()}
           top={getRandomNumber(0, 100)}
           left={getRandomNumber(0, 100)}
-          blur={getRandomNumber(0, 1)}
           delay={getRandomPrimeNumber(1, 2)}
         />
       ))}
