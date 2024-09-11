@@ -7,7 +7,7 @@ const Button = ({
   children,
   className,
   onCustomMouseEnter,
-  type = 'button',
+  type = "button",
   ...rest
 }: ButtonProps) => {
   return (

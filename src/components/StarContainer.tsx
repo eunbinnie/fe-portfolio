@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { getRandomNumber, getRandomPrimeNumber } from '@/utils/getRandomNumber';
+import { motion } from "framer-motion";
+import { getRandomNumber, getRandomPrimeNumber } from "@/utils/getRandomNumber";
 
-import Star from './Star';
-import useWindowSize from '@/hooks/useWindowSize';
+import Star from "./Star";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const StarContainer = () => {
   const arr = Array.from({ length: 10 });

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 interface StarProps {
   top: number;
@@ -34,11 +34,11 @@ const Star = ({ top, left, size, delay }: StarProps) => {
           initial={{ opacity: 0.4 }}
           animate={{ opacity: [1, 0.4, 1] }}
           transition={{
-            ease: 'easeInOut',
+            ease: "easeInOut",
             duration: delay,
             delay: delay,
             repeat: Infinity,
-            repeatType: 'loop',
+            repeatType: "loop",
             repeatDelay: delay,
           }}
         >

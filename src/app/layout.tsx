@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import '@/styles/globals.css';
-import Background from '@/components/StarContainer';
+import type { Metadata } from "next";
+import "@/styles/globals.css";
+import Background from "@/components/StarContainer";
 
 export const metadata: Metadata = {
-  title: '이은빈 | 프론트엔드 개발자 포트폴리오',
-  description: '신입 프론트엔드 개발자 이은빈의 포트폴리오입니다.',
+  title: "이은빈 | 프론트엔드 개발자 포트폴리오",
+  description: "신입 프론트엔드 개발자 이은빈의 포트폴리오입니다.",
 };
 
 export default function RootLayout({
