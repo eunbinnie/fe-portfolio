@@ -25,7 +25,7 @@ const KeywordSection = () => {
   return (
     <section className="flex min-h-dvh items-center justify-center overflow-hidden py-8">
       <div className="grid gap-20 md:gap-[200px]">
-        <h2 className="mx-auto flex max-w-[1248px] flex-wrap items-center justify-center gap-6 px-6 text-lg text-white sm:text-2xl md:gap-14 md:text-4xl">
+        <h2 className="mx-auto flex max-w-[1248px] flex-wrap items-center justify-center gap-3 px-6 text-lg text-white sm:gap-6 sm:text-2xl md:gap-14 md:text-4xl">
           <span>저는</span>
           <span className="flex min-w-[100px] items-center justify-between md:min-w-[220px]">
             (&nbsp;<span className="break-keep text-center">{keyword}</span>
@@ -43,7 +43,7 @@ const KeywordSection = () => {
                   key={idx}
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap hover:bg-[rgba(221,221,221,0.1)]"
                 >
                   {word}
                 </Button>
@@ -55,7 +55,7 @@ const KeywordSection = () => {
                   key={idx}
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap hover:bg-[rgba(221,221,221,0.1)]"
                 >
                   {word}
                 </Button>

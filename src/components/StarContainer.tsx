@@ -31,7 +31,7 @@ const StarContainer = () => {
           size={getNumberRange()}
           top={getRandomNumber(0, 100)}
           left={getRandomNumber(0, 100)}
-          blur={getRandomPrimeNumber(0, 0.5)}
+          blur={getRandomPrimeNumber(0, 0.3)}
           delay={getRandomPrimeNumber(1, 2)}
         />
       ))}
