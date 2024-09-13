@@ -26,7 +26,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Pretendard', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        montserrat: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         aespa: ['Aespa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       animation: {
