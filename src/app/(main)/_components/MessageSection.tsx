@@ -12,7 +12,7 @@ const TEXT = {
  */
 const MessageSection = ({ message }: { message: 'start' | 'end' }) => {
   return (
-    <section className="mx-auto flex min-h-dvh max-w-[1248px] items-center justify-center px-6">
+    <section className="mx-auto flex min-h-dvh max-w-[1448px] items-center justify-center px-6">
       <p className="metalic-text grid break-all py-8 text-center font-aespa text-5xl leading-[1.2] sm:text-6xl md:text-7xl lg:text-9xl">
         {TEXT[message].map((message, idx) => (
           <span key={idx}>{message}</span>

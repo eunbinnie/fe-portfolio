@@ -38,7 +38,7 @@ const SideProfile = () => {
 
   return (
     <div className="grid gap-8 rounded-3xl border border-solid border-gray-100 p-4 lg:p-8 lg:pt-[60px]">
-      <div className="flex items-center gap-6 lg:flex-col">
+      <div className="flex flex-wrap items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -51,11 +51,11 @@ const SideProfile = () => {
             className="pc:p-4 object-contain p-2"
           />
         </figure>
-        <div className="grid place-items-start gap-4 lg:place-items-center">
+        <div className="grid place-items-start gap-2 sm:gap-4 lg:place-items-center">
           <h1 className="text-base font-medium text-white md:text-2xl">
             이은빈 / LEE EUNBIN
           </h1>
-          <p className="rounded-lg bg-gray-200 px-4 py-1 text-xs font-light text-white">
+          <p className="rounded-lg bg-gray-200 px-3 py-1 text-xs font-light text-white sm:px-4">
             Front-End Developer
           </p>
         </div>

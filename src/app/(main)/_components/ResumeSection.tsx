@@ -10,7 +10,7 @@ import SideProfile from '@/components/resume/SideProfile';
  */
 const ResumeSection = () => {
   return (
-    <section className="mx-auto my-[60px] flex max-w-[1248px] flex-col gap-6 px-6 lg:flex-row">
+    <section className="mx-auto my-[60px] flex max-w-[1448px] flex-col gap-6 px-6 lg:flex-row">
       <SideProfile />
       <Overview />
     </section>

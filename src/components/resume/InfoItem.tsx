@@ -23,12 +23,12 @@ const InfoItem = () => {
     <>
       {MY_INFO.map((data, idx) => (
         <div key={idx} className="flex items-center gap-4">
-          <div className="gradient-box relative size-12 basis-12 rounded-xl bg-left-top-gradient">
+          <div className="gradient-box relative size-10 basis-10 rounded-xl bg-left-top-gradient sm:size-12 sm:basis-12">
             <Image
               src={data.src}
               alt={data.label}
               fill
-              className="object-contain px-4"
+              className="object-contain px-3 sm:px-4"
             />
           </div>
           <div className="grid flex-1 gap-[2px]">

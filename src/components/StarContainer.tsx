@@ -7,7 +7,7 @@ import Star from './Star';
 import useWindowSize from '@/hooks/useWindowSize';
 
 const StarContainer = () => {
-  const arr = Array.from({ length: 10 });
+  const arr = Array.from({ length: 11 });
   const windowSize = useWindowSize();
 
   const getNumberRange = () => {
