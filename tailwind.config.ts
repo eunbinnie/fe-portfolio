@@ -15,7 +15,10 @@ const config: Config = {
       white: '#fff',
       black: '#121212',
       silver: '#d3d3d3',
-      gray: '#ddd',
+      gray: {
+        100: '#383838',
+        200: '#1e1e1f',
+      },
     },
     fontFamily: {
       sans: ['Pretendard', 'ui-sans-serif', 'system-ui', 'sans-serif'],

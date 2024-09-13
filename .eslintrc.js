@@ -1,14 +1,16 @@
 module.exports = {
   extends: [
-    'prettier',
-    'eslint:recommended',
     'next/core-web-vitals',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
     'plugin:tailwindcss/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
   ],
+  plugins: ['tailwindcss'],
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    'no-undef': 'off',
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'no-undef': 'off',
+    'tailwindcss/classnames-order': 'off',
   },
 };
