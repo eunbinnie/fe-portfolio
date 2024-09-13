@@ -1,18 +1,11 @@
-import Image from 'next/image';
+import SideProfile from '@/components/sideProfile/SideProfile';
 
 const ResumeSection = () => {
   return (
-    <section>
-      {/* left */}
-      <div></div>
+    <section className="mx-auto my-[60px] flex max-w-[1248px] gap-6 px-6">
+      <SideProfile />
       {/* right */}
-      <div></div>
-      {/* <Image
-        src="/icons/profile.png"
-        alt="이은빈 프로필 이미지"
-        width={160}
-        height={160}
-      /> */}
+      <div className="flex-1" />
     </section>
   );
 };

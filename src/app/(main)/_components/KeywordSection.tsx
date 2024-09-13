@@ -43,7 +43,7 @@ const KeywordSection = () => {
                   key={idx}
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
-                  className="whitespace-nowrap hover:bg-gray-200"
+                  className="hover:bg-gray-300 whitespace-nowrap"
                 >
                   {word}
                 </Button>
@@ -55,7 +55,7 @@ const KeywordSection = () => {
                   key={idx}
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
-                  className="whitespace-nowrap hover:bg-gray-200"
+                  className="hover:bg-gray-300 whitespace-nowrap"
                 >
                   {word}
                 </Button>

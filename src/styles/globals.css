@@ -21,6 +21,14 @@
     animation-play-state: paused;
   }
 
+  .gradient-box::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background-color: #1b1c20;
+    border-radius: inherit;
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
   }
