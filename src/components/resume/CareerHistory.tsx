@@ -15,11 +15,14 @@ const CAREER_HISTORY = [
 
 const CareerHistory = () => {
   return (
-    <ul className="grid gap-1">
+    <ul className="grid gap-5 sm:gap-1">
       {CAREER_HISTORY.map((data, idx) => (
-        <li key={idx} className="flex items-center gap-5 text-sm">
+        <li
+          key={idx}
+          className="flex flex-col gap-1 text-sm sm:flex-row sm:gap-5"
+        >
           <span className="text-silver">{data.period}</span>
-          <span className="font-medium text-white">{data.title}</span>
+          <span className="flex-1 font-medium text-white">{data.title}</span>
         </li>
       ))}
     </ul>

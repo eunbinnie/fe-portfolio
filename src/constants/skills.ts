@@ -18,7 +18,7 @@ const SKILLS: Skills[] = [
   {
     src: '/icons/javascript.svg',
     title: 'JavaScript',
-    level: 75,
+    level: 80,
   },
   {
     src: '/icons/typescript.svg',
@@ -38,7 +38,7 @@ const SKILLS: Skills[] = [
   {
     src: '/icons/styledComponents.png',
     title: 'styled-components',
-    level: 70,
+    level: 78,
   },
   {
     src: '/icons/tailwindcss.svg',
@@ -48,7 +48,12 @@ const SKILLS: Skills[] = [
   {
     src: '/icons/tanstackQuery.png',
     title: 'TanStack Query',
-    level: 40,
+    level: 55,
+  },
+  {
+    src: '/icons/zustand.svg',
+    title: 'Zustand',
+    level: 55,
   },
 ];
 

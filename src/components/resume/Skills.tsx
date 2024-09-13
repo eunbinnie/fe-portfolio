@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Skills = () => {
   return (
-    <ul className="grid gap-x-4 gap-y-16 md:grid-cols-5">
+    <ul className="grid gap-x-4 gap-y-16 sm:grid-cols-3 md:grid-cols-5">
       {SKILLS.map((skill, idx) => (
         <li key={idx} className="grid place-items-center gap-4 px-3">
           <figure className="relative aspect-square size-[60px]">

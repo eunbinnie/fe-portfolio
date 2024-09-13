@@ -37,24 +37,24 @@ const SideProfile = () => {
   };
 
   return (
-    <div className="grid gap-8 rounded-3xl border border-solid border-gray-100 p-8 pt-[60px]">
-      <div className="grid place-items-center gap-6">
+    <div className="grid gap-8 rounded-3xl border border-solid border-gray-100 p-4 lg:p-8 lg:pt-[60px]">
+      <div className="flex items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="relative size-[150px] rounded-3xl bg-gray-300"
+          className="relative size-20 rounded-3xl bg-gray-300 sm:size-[120px] lg:size-[150px]"
         >
           <Image
             src={src}
             alt="이은빈 프로필 이미지"
             fill
-            className="object-contain p-4"
+            className="pc:p-4 object-contain p-2"
           />
         </figure>
-        <div className="grid place-items-center gap-4">
-          <h2 className="text-2xl font-medium text-white">
+        <div className="grid place-items-start gap-4 lg:place-items-center">
+          <h1 className="text-base font-medium text-white md:text-2xl">
             이은빈 / LEE EUNBIN
-          </h2>
+          </h1>
           <p className="rounded-lg bg-gray-200 px-4 py-1 text-xs font-light text-white">
             Front-End Developer
           </p>
@@ -63,7 +63,7 @@ const SideProfile = () => {
       <hr className="border-gray-100" />
       <div className="grid gap-[30px]">
         <InfoItem />
-        <div className="flex justify-center gap-4">
+        <div className="flex gap-4 pl-2 lg:justify-center lg:pl-0">
           {LINK.map((data, idx) => (
             <Link
               key={idx}
