@@ -37,7 +37,6 @@ const InfoItem = () => {
           </div>
         </div>
       ))}
-      ;
     </>
   );
 };

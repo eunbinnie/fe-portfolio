@@ -1,4 +1,5 @@
 import CareerHistory from './CareerHistory';
+import Skills from './Skills';
 
 /**
  * Overview 컴포넌트는 학력 및 경력, 사용 가능한 기술 스택을 렌더링합니다.
@@ -20,6 +21,7 @@ const Overview = () => {
           <h5 className="text-lg font-medium text-white">SKILLS</h5>
           <h6 className="text-sm font-extralight text-white">기술 스택</h6>
         </div>
+        <Skills />
       </div>
     </div>
   );

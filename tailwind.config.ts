@@ -48,6 +48,8 @@ const config: Config = {
       backgroundImage: {
         'left-top-gradient':
           'linear-gradient( to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50% )',
+        'white-silver-gradient':
+          'linear-gradient(to right, #c0c0c0, #ffffff, #c0c0c0, #d3d3d3)',
       },
     },
   },
