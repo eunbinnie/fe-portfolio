@@ -63,7 +63,7 @@ const SideProfile = () => {
       <hr className="border-gray-100" />
       <div className="grid gap-[30px]">
         <InfoItem />
-        <div className="flex gap-4 pl-2 lg:justify-center lg:pl-0">
+        <div className="flex items-center gap-4 pl-2 lg:justify-center lg:pl-0">
           {LINK.map((data, idx) => (
             <Link
               key={idx}
