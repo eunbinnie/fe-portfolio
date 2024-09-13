@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Button from "@/components/Button";
-import KEYWORD from "@/constants/keyword";
-import { useState } from "react";
+import Button from '@/components/Button';
+import KEYWORD from '@/constants/keyword';
+import { useState } from 'react';
 
 /**
  * KeywordSection
@@ -12,14 +12,14 @@ import { useState } from "react";
  * 마우스를 떼면 괄호 안의 키워드는 사라집니다.
  */
 const KeywordSection = () => {
-  const [keyword, setKeyword] = useState<string>("");
+  const [keyword, setKeyword] = useState<string>('');
 
   const handleMouseOver = (word: string) => {
     setKeyword(word);
   };
 
   const handleMouseOut = () => {
-    setKeyword("");
+    setKeyword('');
   };
 
   return (

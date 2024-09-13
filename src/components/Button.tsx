@@ -1,5 +1,5 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  onCustomMouseEnter?: (word: string) => void;
+  onCustomMouseEnter?: (_word: string) => void;
   className?: string;
 }
 
@@ -7,7 +7,7 @@ const Button = ({
   children,
   className,
   onCustomMouseEnter,
-  type = "button",
+  type = 'button',
   ...rest
 }: ButtonProps) => {
   return (

@@ -1,5 +1,5 @@
-import debounce from "lodash.debounce";
-import { useEffect, useState } from "react";
+import debounce from 'lodash.debounce';
+import { useEffect, useState } from 'react';
 
 /**
  * 브라우저 창의 너비(width)를 추적하고 반환합니다.
@@ -14,8 +14,8 @@ const useWindowSize = () => {
 
     handleResize();
     const debouncedHandleResize = debounce(handleResize, 300);
-    window.addEventListener("resize", debouncedHandleResize);
-    return () => window.removeEventListener("resize", debouncedHandleResize);
+    window.addEventListener('resize', debouncedHandleResize);
+    return () => window.removeEventListener('resize', debouncedHandleResize);
   }, []);
 
   return windowSize;
