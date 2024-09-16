@@ -35,7 +35,7 @@ const KeywordSection = () => {
             ])}
           >
             (&nbsp;
-            <span className="font-wiro break-keep text-center">{keyword}</span>
+            <span className="break-keep text-center font-wiro">{keyword}</span>
             &nbsp;)
           </span>
           <span>

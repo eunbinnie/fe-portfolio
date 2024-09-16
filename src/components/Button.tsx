@@ -1,5 +1,4 @@
 import cn from '@/utils/cn';
-import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onCustomMouseEnter?: (_word: string) => void;
