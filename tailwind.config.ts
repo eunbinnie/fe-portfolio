@@ -28,6 +28,7 @@ const config: Config = {
       fontFamily: {
         sans: ['Pretendard', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         aespa: ['Aespa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        wiro: ['Wiro', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       animation: {
         'infinite-slide-original':

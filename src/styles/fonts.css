@@ -57,3 +57,9 @@
   src: url('/fonts/aespa/aespa_Regular.ttf');
   font-weight: 400;
 }
+
+@font-face {
+  font-family: 'Wiro';
+  src: url('/fonts/wiro/NanumGangInHanWiRo.woff2');
+  font-weight: 400;
+}
