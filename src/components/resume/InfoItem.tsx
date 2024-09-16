@@ -28,6 +28,7 @@ const InfoItem = () => {
               src={data.src}
               alt={data.label}
               fill
+              priority
               sizes="max-width:100%"
               className="object-contain px-3 sm:px-4"
             />

@@ -1,13 +1,13 @@
 import MessageSection from './_components/MessageSection';
 import KeywordSection from './_components/KeywordSection';
-import ResumeSection from './_components/ResumeSection';
+import DynamicSectionRender from './_components/DynamicSectionRender';
 
 export default function MainPage() {
   return (
     <>
       <MessageSection message="start" />
       <KeywordSection />
-      <ResumeSection />
+      <DynamicSectionRender />
       <MessageSection message="end" />
     </>
   );

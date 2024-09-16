@@ -48,6 +48,8 @@ const KeywordSection = () => {
               {KEYWORD.map((word, idx) => (
                 <Button
                   key={idx}
+                  size="big"
+                  variant="outlined"
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
                   className="whitespace-nowrap"
@@ -60,6 +62,8 @@ const KeywordSection = () => {
               {KEYWORD.map((word, idx) => (
                 <Button
                   key={idx}
+                  size="big"
+                  variant="outlined"
                   onCustomMouseEnter={handleMouseOver}
                   onMouseLeave={handleMouseOut}
                   className="whitespace-nowrap hover:bg-gray-300"

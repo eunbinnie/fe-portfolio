@@ -28,6 +28,7 @@ const NotFoundPage = () => {
         </p>
         <Button
           size="small"
+          variant="outlined"
           onClick={() => {
             router.push('/');
           }}

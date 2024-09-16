@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import InfoItem from './InfoItem';
+import InfoItem from '../../../components/resume/InfoItem';
 
 const LINK = [
   {
@@ -37,7 +37,7 @@ const SideProfile = () => {
   };
 
   return (
-    <div className="grid gap-8 rounded-3xl border border-solid border-gray-100 p-4 lg:p-8 lg:pt-[60px]">
+    <div className="sticky top-6 grid h-fit gap-8 rounded-3xl border border-solid border-gray-100 p-4 lg:p-8 lg:pt-[60px]">
       <div className="flex flex-wrap items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
@@ -48,6 +48,7 @@ const SideProfile = () => {
             src={src}
             alt="이은빈 프로필 이미지"
             fill
+            priority
             sizes="max-width:100%"
             className="pc:p-4 object-contain p-2"
           />
@@ -71,6 +72,7 @@ const SideProfile = () => {
                   src={data.src}
                   alt={data.alt}
                   fill
+                  priority
                   sizes="max-width:100%"
                   className="object-contain"
                 />
