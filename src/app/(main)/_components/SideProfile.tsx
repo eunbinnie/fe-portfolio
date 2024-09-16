@@ -37,7 +37,7 @@ const SideProfile = () => {
   };
 
   return (
-    <div className="sticky top-6 grid h-fit gap-8 rounded-3xl border border-solid border-gray-100 p-4 lg:p-8 lg:pt-[60px]">
+    <div className="grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 lg:p-8 lg:pt-[60px]">
       <div className="flex flex-wrap items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
@@ -81,7 +81,7 @@ const SideProfile = () => {
           </div>
         </div>
       </div>
-      <hr className="border-gray-100" />
+      <hr className="border-gray-150" />
       <InfoItem />
     </div>
   );

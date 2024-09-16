@@ -19,7 +19,8 @@ const config: Config = {
         silver: '#d3d3d3',
         gray: {
           50: '#fafafa',
-          100: '#383838',
+          100: '#cbc9cf',
+          150: '#383838',
           200: '#2a2a2b',
           300: '#1e1e1f',
           400: '#1b1c20',

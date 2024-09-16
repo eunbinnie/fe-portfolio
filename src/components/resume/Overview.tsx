@@ -6,7 +6,7 @@ import Skills from './Skills';
  */
 const Overview = () => {
   return (
-    <div className="grid h-fit flex-1 gap-20 rounded-3xl border border-solid border-gray-100 p-4 pt-10 lg:p-8 lg:pt-[60px]">
+    <div className="grid h-fit flex-1 gap-20 rounded-3xl border border-solid border-gray-150 p-4 pt-10 lg:p-8 lg:pt-[60px]">
       <div className="grid gap-8">
         <div className="grid gap-1">
           <h5 className="text-xl font-medium text-white">

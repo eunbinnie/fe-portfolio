@@ -17,7 +17,7 @@ const Skills = () => {
             />
           </figure>
           <span className="text-xs text-white">{skill.title}</span>
-          <div className="h-2 w-full rounded-2xl bg-gray-100">
+          <div className="h-2 w-full rounded-2xl bg-gray-150">
             <div
               className="h-full rounded-2xl bg-white-silver-gradient"
               style={{ width: `${skill.level}%` }}
