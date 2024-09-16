@@ -48,6 +48,7 @@ const SideProfile = () => {
             src={src}
             alt="이은빈 프로필 이미지"
             fill
+            sizes="max-width:100%"
             className="pc:p-4 object-contain p-2"
           />
         </figure>
@@ -58,29 +59,28 @@ const SideProfile = () => {
           <p className="rounded-lg bg-gray-200 px-3 py-1 text-xs font-light text-white sm:px-4">
             Front-End Developer
           </p>
+          <div className="flex items-center gap-4 pl-2 lg:justify-center lg:pl-0">
+            {LINK.map((data, idx) => (
+              <Link
+                key={idx}
+                href={data.href}
+                target="_blank"
+                className="relative size-[18px]"
+              >
+                <Image
+                  src={data.src}
+                  alt={data.alt}
+                  fill
+                  sizes="max-width:100%"
+                  className="object-contain"
+                />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       <hr className="border-gray-100" />
-      <div className="grid gap-[30px]">
-        <InfoItem />
-        <div className="flex items-center gap-4 pl-2 lg:justify-center lg:pl-0">
-          {LINK.map((data, idx) => (
-            <Link
-              key={idx}
-              href={data.href}
-              target="_blank"
-              className="relative size-[18px]"
-            >
-              <Image
-                src={data.src}
-                alt={data.alt}
-                fill
-                className="object-contain"
-              />
-            </Link>
-          ))}
-        </div>
-      </div>
+      <InfoItem />
     </div>
   );
 };

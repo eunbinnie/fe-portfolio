@@ -11,6 +11,7 @@ const Skills = () => {
               src={skill.src}
               alt={skill.title}
               fill
+              sizes="max-width:100%"
               className="object-contain"
             />
           </figure>

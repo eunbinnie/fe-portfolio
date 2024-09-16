@@ -7,7 +7,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
   ],
-  plugins: ['react', 'tailwindcss'],
+  plugins: ['react', 'tailwindcss', 'import'],
   rules: {
     'react/react-in-jsx-scope': 'off', // React 17+에서 더 이상 필요하지 않음
     'react/jsx-uses-react': 'off',
@@ -16,6 +16,7 @@ module.exports = {
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'no-undef': 'off',
     'tailwindcss/classnames-order': 'off',
+    'import/no-duplicates': 'error',
   },
   settings: {
     react: {
