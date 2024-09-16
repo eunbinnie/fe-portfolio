@@ -17,7 +17,7 @@ const PROJECTS = [
     id: 2,
     title: 'WekitBuket',
     tag: 'Frontend Development',
-    thumbnail: '/icons/wekitBucket.svg',
+    thumbnail: '/icons/wekitbucket.svg',
     summary:
       '자유게시판 리스트와 상세 페이지, 로그인 페이지의 프론트엔드 화면 구현을 담당했습니다.',
     headCount: 5,
