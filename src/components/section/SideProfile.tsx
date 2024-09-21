@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import InfoItem from '../../../components/resume/InfoItem';
+import InfoItem from '../resume/InfoItem';
 
 const LINK = [
   {
@@ -37,7 +37,7 @@ const SideProfile = () => {
   };
 
   return (
-    <div className="grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 lg:p-8 lg:pt-[60px]">
+    <section className="grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 lg:sticky lg:top-0 lg:p-8 lg:pt-[60px]">
       <div className="flex flex-wrap items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
@@ -83,7 +83,7 @@ const SideProfile = () => {
       </div>
       <hr className="border-gray-150" />
       <InfoItem />
-    </div>
+    </section>
   );
 };
 
