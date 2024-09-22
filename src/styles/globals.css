@@ -21,6 +21,14 @@
     animation-play-state: paused;
   }
 
+  .scale-item {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+
+  .scale-group:hover .scale-item {
+    @apply scale-110;
+  }
+
   .gradient-box::before {
     content: '';
     position: absolute;

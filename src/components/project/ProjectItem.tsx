@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 const ProjectItem = ({ data }: { data: IProjectItem }) => {
   return (
-    <li className="grid place-content-start gap-3">
+    <li className="scale-group grid place-content-start gap-3">
       <Link
         href="#"
-        className="relative flex aspect-video w-full items-center justify-center rounded-xl bg-white"
+        className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-white"
       >
         <Image
           src={data.thumbnail}
@@ -15,7 +15,7 @@ const ProjectItem = ({ data }: { data: IProjectItem }) => {
           fill
           sizes="max-width:100%"
           priority
-          className="w-full object-contain"
+          className="scale-item w-full object-contain"
         />
       </Link>
       <Link href="#" className="w-fit text-lg font-medium text-white">
