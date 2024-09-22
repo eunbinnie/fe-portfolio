@@ -12,7 +12,7 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
         <div className="grid gap-5">
           <h1 className="break-all text-5xl font-bold">{data.title}</h1>
           <ul className="flex flex-wrap items-center gap-2">
-            {data.skills?.map((skill, idx) => (
+            {data.skills.map((skill, idx) => (
               <li
                 key={idx}
                 className="border border-solid border-gray-150 px-2 py-1 text-xs"
@@ -22,17 +22,17 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
             ))}
           </ul>
         </div>
-        <ul className="grid gap-1 text-gray-100">
+        <ul className="grid gap-1 text-sm text-gray-100 sm:text-base">
           <li className="flex flex-wrap items-center">
-            <span className="basis-40 font-semibold">Team Size:</span>
+            <span className="basis-[90px] font-semibold">Team Size:</span>
             <span className="break-all">{data.headCount}인</span>
           </li>
           <li className="flex flex-wrap items-center">
-            <span className="basis-40 font-semibold">Duration:</span>
+            <span className="basis-[90px] font-semibold">Duration:</span>
             <span className="break-all">{data.duration}</span>
           </li>
           <li className="flex flex-wrap items-center">
-            <span className="basis-40 font-semibold">Website:</span>
+            <span className="basis-[90px] font-semibold">Website:</span>
             <Link
               href={data.demoLink}
               target="_blank"
@@ -43,7 +43,7 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
           </li>
           {data.githubLink && (
             <li className="flex flex-wrap items-center">
-              <span className="basis-40 font-semibold">GitHub Repository:</span>
+              <span className="basis-[90px] font-semibold">GitHub:</span>
               <Link
                 href={data.githubLink}
                 target="_blank"

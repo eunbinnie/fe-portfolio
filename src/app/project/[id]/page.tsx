@@ -1,6 +1,7 @@
 'use client';
 
 import ProjectInfo from '@/components/project/ProjectInfo';
+import WorkDetails from '@/components/project/WorkDetails';
 import PROJECTS, { PROJECT_TOTAL_COUNT } from '@/constants/projects';
 import { notFound } from 'next/navigation';
 
@@ -13,8 +14,9 @@ const page = ({ params }: { params: { id: number } }) => {
   }
 
   return (
-    <div className="max-container">
+    <div className="max-container grid gap-20 pb-[100px]">
       <ProjectInfo data={data} />
+      <WorkDetails data={data.role} />
     </div>
   );
 };

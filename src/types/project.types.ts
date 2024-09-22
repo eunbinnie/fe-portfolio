@@ -1,17 +1,22 @@
-export interface ProjectTag {
+export interface IProjectTag {
   tag: 'Frontend Development' | 'Web Publishing';
 }
 
-export interface IProjectItem extends ProjectTag {
+export interface IWorkDetail {
+  title: string;
+  image: string;
+  description: string;
+}
+
+export interface IProjectItem extends IProjectTag {
   id: number;
   title: string;
   thumbnail: string;
-  skills?: string[];
+  skills: string[];
   summary: string[];
+  role: IWorkDetail[];
   headCount: number;
   duration: string;
-  description: string;
-  role: string;
   githubLink?: string;
   demoLink: string;
 }
