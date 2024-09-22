@@ -6,7 +6,7 @@ export interface IProjectItem extends ProjectTag {
   id: number;
   title: string;
   thumbnail: string;
-  summary: string;
+  summary: string[];
   headCount: number;
   duration: string;
   description: string;

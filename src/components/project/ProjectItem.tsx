@@ -21,7 +21,16 @@ const ProjectItem = ({ data }: { data: IProjectItem }) => {
       <Link href="#" className="w-fit text-lg font-medium text-white">
         {data.title}
       </Link>
-      <p className="break-keep text-sm text-gray-100">{data.summary}</p>
+      <ul className="grid gap-2 break-keep text-sm text-gray-100">
+        {data.summary.map((data, idx) => (
+          <li
+            key={idx}
+            className="relative top-0 pl-4 before:absolute before:left-0 before:content-['-']"
+          >
+            {data}
+          </li>
+        ))}
+      </ul>
       <span className="w-fit bg-gray-200 px-1 text-xs text-gray-100">
         #{data.tag}
       </span>

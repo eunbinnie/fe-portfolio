@@ -6,8 +6,12 @@ const PROJECTS: IProjectItem[] = [
     title: 'GlobalNomad',
     tag: 'Frontend Development',
     thumbnail: '/icons/globalNomad.svg',
-    summary:
-      '체험 등록/예약 프로젝트에서 체험 등록 및 수정, 내 정보 수정, 예약 내역 페이지 구현을 담당했습니다.',
+    summary: [
+      '마크다운 에디터와 이미지 드래그 앤 드롭, 우편번호 서비스 연동을 통해 체험 등록/수정 페이지 구현',
+      '내 정보 수정 시 비밀번호 확인 절차와 쿠키 만료 처리로 보안 강화',
+      '후기 작성 모달에 Lottie 애니메이션을 추가해 동적인 사용자 경험 제공',
+      '사이트 소개 랜딩 페이지의 디자인 및 퍼블리싱 전담',
+    ],
     headCount: 5,
     duration: '2024.07.25 ~ 2024.08.30',
     description: '',
@@ -20,8 +24,11 @@ const PROJECTS: IProjectItem[] = [
     title: 'WekitBuket',
     tag: 'Frontend Development',
     thumbnail: '/icons/wekitbucket.svg',
-    summary:
-      '자유게시판 리스트와 상세 페이지, 로그인 페이지의 프론트엔드 화면 구현을 담당했습니다.',
+    summary: [
+      '자유게시판 리스트 페이지 개발 및 공통 페이지네이션 컴포넌트 제작',
+      'marked 라이브러리를 활용한 마크다운 파싱 및 상세 페이지 렌더링',
+      '로그인 페이지 퍼블리싱 및 API 결과 기반 화면 구현',
+    ],
     headCount: 5,
     duration: '2024.06.21 ~ 2024.07.19',
     description: '',
@@ -34,8 +41,11 @@ const PROJECTS: IProjectItem[] = [
     title: 'Fandom-K',
     tag: 'Frontend Development',
     thumbnail: '/icons/fandomK.svg',
-    summary:
-      'localStorage를 활용한 관심 아이돌 추가/삭제 기능이 있는 마이페이지 구현을 담당했습니다.',
+    summary: [
+      '마이페이지 퍼블리싱 및 전체 기능 구현 담당',
+      'Swiper를 이용해 아이돌 리스트 슬라이드 변경 시마다 필요한 데이터만 호출, 대량의 데이터에서도 성능 최적화',
+      'localStorage를 활용한 관심 아이돌 추가/삭제 기능 구현, 사이트 재방문 시에도 관심 아이돌 정보 유지',
+    ],
     headCount: 5,
     duration: '2024.04.30 ~ 2024.05.17',
     description: '',
@@ -48,8 +58,10 @@ const PROJECTS: IProjectItem[] = [
     title: 'Feelkeen',
     tag: 'Web Publishing',
     thumbnail: '/icons/feelkeen.svg',
-    summary:
-      '카페24 플랫폼을 기반으로 국내몰 및 해외몰을 지원하는 쇼핑몰 퍼블리싱을 담당했습니다.',
+    summary: [
+      '카페24 플랫폼 기반 국내몰 및 해외몰 지원 쇼핑몰 퍼블리싱 담당',
+      '회원 등급에 따른 페이지 리다이렉트 기능 구현',
+    ],
     headCount: 1,
     duration: '2023.07 ~ 2023.11',
     description: '',
@@ -62,8 +74,10 @@ const PROJECTS: IProjectItem[] = [
     title: '그라운드시소',
     tag: 'Web Publishing',
     thumbnail: '/icons/groundseesaw.svg',
-    summary:
-      '그라운드시소 공식몰을 카페24 플랫폼으로 이전하는 작업을 진행했습니다.',
+    summary: [
+      '기존 사이트의 카페24 플랫폼 마이그레이션 작업 담당',
+      '전시 날짜 선택 및 이전 날짜 선택 불가 기능 구현',
+    ],
     headCount: 1,
     duration: '2023.09 ~ 2023.10',
     description: '',
@@ -76,8 +90,9 @@ const PROJECTS: IProjectItem[] = [
     title: '워클로',
     tag: 'Web Publishing',
     thumbnail: '/icons/worclo.svg',
-    summary:
-      '카페24 플랫폼을 활용한 반응형 쇼핑몰 퍼블리싱 업무를 담당했습니다.',
+    summary: [
+      '카페24 플랫폼 기반 반응형 쇼핑몰 메인 페이지 제외 퍼블리싱 작업 담당',
+    ],
     headCount: 2,
     duration: '2023.05 ~ 2023.06',
     description: '',
