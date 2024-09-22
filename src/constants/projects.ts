@@ -8,7 +8,7 @@ const PROJECTS: IProjectItem[] = [
     thumbnail: '/icons/globalNomad.svg',
     summary: [
       'React Query의 SSR Prefetching 및 refetch 기능을 활용한 데이터 업데이트 기능 구현',
-      '마크다운 에디터와 이미지 DnD, 우편번호 api 연동을 통해 체험 등록/수정 페이지 구현',
+      '마크다운 에디터와 이미지 DnD, 우편번호 API 연동을 통해 체험 등록/수정 페이지 구현',
       '내 정보 수정 시 데이터 유효성 검사와 쿠키 만료 처리로 보안 강화',
       '후기 작성 모달에 Lottie 애니메이션을 추가해 동적인 사용자 경험 제공',
       '사이트 소개 랜딩 페이지의 디자인 및 퍼블리싱 전담',
@@ -102,5 +102,7 @@ const PROJECTS: IProjectItem[] = [
     demoLink: 'https://worclo.co.kr/',
   },
 ];
+
+export const PROJECT_TOTAL_COUNT = PROJECTS.length;
 
 export default PROJECTS;

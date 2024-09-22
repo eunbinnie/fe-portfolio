@@ -26,7 +26,7 @@ const KeywordSection = () => {
   return (
     <section className="flex min-h-dvh items-center justify-center overflow-hidden py-8">
       <div className="grid gap-20 md:gap-36">
-        <p className="mx-auto flex max-w-[1448px] flex-wrap items-center justify-center gap-3 px-6 text-lg text-white sm:gap-6 sm:text-2xl md:gap-14 md:text-4xl">
+        <p className="max-container flex flex-wrap items-center justify-center gap-3 text-lg text-white sm:gap-6 sm:text-2xl md:gap-14 md:text-4xl">
           <span>저는</span>
           <span
             className={cn([

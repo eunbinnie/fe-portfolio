@@ -12,7 +12,7 @@ import SideProfile from './SideProfile';
  */
 const DynamicSectionRender = () => {
   return (
-    <section className="mx-auto my-[60px] max-w-[1448px] px-6">
+    <section className="max-container my-[60px]">
       <div className="flex flex-col gap-6 lg:flex-row">
         <SideProfile />
         <div className="grid h-fit flex-1 gap-20 rounded-3xl border border-solid border-gray-150 p-4 pt-10 lg:p-8 lg:pt-[60px]">

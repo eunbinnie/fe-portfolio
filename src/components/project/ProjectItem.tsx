@@ -31,7 +31,7 @@ const ProjectItem = ({ data }: { data: IProjectItem }) => {
       </span>
       <div className="mt-4 flex items-end">
         <Link
-          href="#"
+          href={`/project/${data.id}`}
           className="ml-auto flex grid-flow-row items-center gap-1 text-xs text-white"
         >
           VIEW MORE

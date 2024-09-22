@@ -13,6 +13,10 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 1);
   }
 
+  .max-container {
+    @apply mx-auto max-w-[1448px] px-6;
+  }
+
   .group:hover .animate-infinite-slide-original {
     animation-play-state: paused;
   }
