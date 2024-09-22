@@ -4,11 +4,8 @@ import Link from 'next/link';
 
 const ProjectItem = ({ data }: { data: IProjectItem }) => {
   return (
-    <li className="scale-group grid place-content-start gap-3">
-      <Link
-        href="#"
-        className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-white"
-      >
+    <li className="scale-group grid grid-cols-1 grid-rows-[repeat(4,auto),1fr] place-content-start gap-3">
+      <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-white">
         <Image
           src={data.thumbnail}
           alt={`${data.title} 이미지`}
@@ -17,10 +14,8 @@ const ProjectItem = ({ data }: { data: IProjectItem }) => {
           priority
           className="scale-item w-full object-contain"
         />
-      </Link>
-      <Link href="#" className="w-fit text-lg font-medium text-white">
-        {data.title}
-      </Link>
+      </div>
+      <span className="w-fit text-lg font-medium text-white">{data.title}</span>
       <ul className="grid gap-2 break-keep text-sm text-gray-100">
         {data.summary.map((data, idx) => (
           <li
@@ -34,18 +29,20 @@ const ProjectItem = ({ data }: { data: IProjectItem }) => {
       <span className="w-fit bg-gray-200 px-1 text-xs text-gray-100">
         #{data.tag}
       </span>
-      <Link
-        href="#"
-        className="ml-auto mt-4 flex items-center gap-1 text-xs text-white"
-      >
-        VIEW MORE
-        <Image
-          src="/icons/arrowRight.svg"
-          alt="자세히 보기"
-          width={12}
-          height={12}
-        />
-      </Link>
+      <div className="mt-4 flex items-end">
+        <Link
+          href="#"
+          className="ml-auto flex grid-flow-row items-center gap-1 text-xs text-white"
+        >
+          VIEW MORE
+          <Image
+            src="/icons/arrowRight.svg"
+            alt="자세히 보기"
+            width={12}
+            height={12}
+          />
+        </Link>
+      </div>
     </li>
   );
 };
