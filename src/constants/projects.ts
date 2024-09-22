@@ -98,7 +98,6 @@ const PROJECTS: IProjectItem[] = [
         description: '',
       },
     ],
-    githubLink: '',
     demoLink: 'https://feelkeen.com/',
   },
   {
@@ -120,7 +119,6 @@ const PROJECTS: IProjectItem[] = [
         description: '',
       },
     ],
-    githubLink: '',
     demoLink: 'https://groundseesaw.co.kr/',
   },
   {
@@ -141,7 +139,6 @@ const PROJECTS: IProjectItem[] = [
         description: '',
       },
     ],
-    githubLink: '',
     demoLink: 'https://worclo.co.kr/',
   },
 ];
