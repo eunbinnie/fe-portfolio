@@ -1,5 +1,6 @@
 'use client';
 
+import ProjectGallery from '@/components/project/ProjectGallery';
 import ProjectInfo from '@/components/project/ProjectInfo';
 import WorkDetails from '@/components/project/WorkDetails';
 import PROJECTS, { PROJECT_TOTAL_COUNT } from '@/constants/projects';
@@ -17,6 +18,7 @@ const page = ({ params }: { params: { id: number } }) => {
     <div className="max-container grid gap-20 pb-[100px]">
       <ProjectInfo data={data} />
       {data.role && <WorkDetails data={data.role} />}
+      <ProjectGallery images={data.images} />
     </div>
   );
 };

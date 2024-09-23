@@ -24,15 +24,21 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
         </div>
         <ul className="grid gap-1 text-sm text-gray-100 sm:text-base">
           <li className="flex flex-wrap items-center">
-            <span className="basis-[90px] font-semibold">Team Size:</span>
+            <span className="basis-20 font-semibold sm:basis-[90px]">
+              Team Size:
+            </span>
             <span className="break-all">{data.headCount}인</span>
           </li>
           <li className="flex flex-wrap items-center">
-            <span className="basis-[90px] font-semibold">Duration:</span>
+            <span className="basis-20 font-semibold sm:basis-[90px]">
+              Duration:
+            </span>
             <span className="break-all">{data.duration}</span>
           </li>
           <li className="flex flex-wrap items-center">
-            <span className="basis-[90px] font-semibold">Website:</span>
+            <span className="basis-20 font-semibold sm:basis-[90px]">
+              Website:
+            </span>
             <Link
               href={data.demoLink}
               target="_blank"
@@ -43,7 +49,9 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
           </li>
           {data.githubLink && (
             <li className="flex flex-wrap items-center">
-              <span className="basis-[90px] font-semibold">GitHub:</span>
+              <span className="basis-20 font-semibold sm:basis-[90px]">
+                GitHub:
+              </span>
               <Link
                 href={data.githubLink}
                 target="_blank"
