@@ -14,7 +14,7 @@ export interface IProjectItem extends IProjectTag {
   thumbnail: string;
   skills: string[];
   summary: string[];
-  role: IWorkDetail[];
+  role?: IWorkDetail[];
   headCount: number;
   duration: string;
   githubLink?: string;

@@ -91,13 +91,6 @@ const PROJECTS: IProjectItem[] = [
     ],
     headCount: 1,
     duration: '2023.07 ~ 2023.11',
-    role: [
-      {
-        title: '',
-        image: '',
-        description: '',
-      },
-    ],
     demoLink: 'https://feelkeen.com/',
   },
   {
@@ -112,13 +105,6 @@ const PROJECTS: IProjectItem[] = [
     ],
     headCount: 1,
     duration: '2023.09 ~ 2023.10',
-    role: [
-      {
-        title: '',
-        image: '',
-        description: '',
-      },
-    ],
     demoLink: 'https://groundseesaw.co.kr/',
   },
   {
@@ -132,13 +118,6 @@ const PROJECTS: IProjectItem[] = [
     ],
     headCount: 2,
     duration: '2023.05 ~ 2023.06',
-    role: [
-      {
-        title: '',
-        image: '',
-        description: '',
-      },
-    ],
     demoLink: 'https://worclo.co.kr/',
   },
 ];

@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 
 const page = ({ params }: { params: { id: number } }) => {
   const id = Number(params.id);
-  const data = PROJECTS[id - 1];
+  const data = PROJECTS.filter((project) => project.id === id)[0];
 
   if (id > PROJECT_TOTAL_COUNT || id === 0) {
     notFound();
@@ -16,7 +16,7 @@ const page = ({ params }: { params: { id: number } }) => {
   return (
     <div className="max-container grid gap-20 pb-[100px]">
       <ProjectInfo data={data} />
-      <WorkDetails data={data.role} />
+      {data.role && <WorkDetails data={data.role} />}
     </div>
   );
 };
