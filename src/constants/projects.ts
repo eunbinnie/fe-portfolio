@@ -6,7 +6,6 @@ const PROJECTS: IProjectItem[] = [
     title: 'GlobalNomad',
     tag: 'Frontend Development',
     thumbnail: '/icons/globalNomad.svg',
-    images: [''],
     skills: [
       'Next.js',
       'React',
@@ -74,7 +73,6 @@ const PROJECTS: IProjectItem[] = [
     title: 'WekitBucket',
     tag: 'Frontend Development',
     thumbnail: '/icons/wekitbucket.svg',
-    images: [''],
     skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'Tailwind CSS'],
     summary: [
       '자유게시판 리스트 페이지 개발 및 공통 페이지네이션 컴포넌트 제작',
@@ -98,7 +96,6 @@ const PROJECTS: IProjectItem[] = [
     title: 'Fandom-K',
     tag: 'Frontend Development',
     thumbnail: '/icons/fandomK.svg',
-    images: [''],
     skills: ['React', 'JavaScript', 'Fetch API', 'styled-components'],
     summary: [
       '마이페이지 퍼블리싱 및 전체 기능 구현 담당',
@@ -122,7 +119,6 @@ const PROJECTS: IProjectItem[] = [
     title: 'Feelkeen',
     tag: 'Web Publishing',
     thumbnail: '/icons/feelkeen.svg',
-    images: [''],
     skills: ['HTML', 'CSS', 'JavaScript'],
     summary: [
       '카페24 플랫폼 기반 국내몰 및 해외몰 지원 쇼핑몰 퍼블리싱 담당',
@@ -137,7 +133,6 @@ const PROJECTS: IProjectItem[] = [
     title: '그라운드시소',
     tag: 'Web Publishing',
     thumbnail: '/icons/groundseesaw.svg',
-    images: [''],
     skills: ['HTML', 'CSS', 'JavaScript'],
     summary: [
       '기존 사이트의 카페24 플랫폼 마이그레이션 작업 담당',
@@ -152,7 +147,6 @@ const PROJECTS: IProjectItem[] = [
     title: '워클로',
     tag: 'Web Publishing',
     thumbnail: '/icons/worclo.svg',
-    images: [''],
     skills: ['HTML', 'CSS', 'JavaScript'],
     summary: [
       '카페24 플랫폼 기반 반응형 쇼핑몰 메인 페이지 제외 퍼블리싱 작업 담당',
