@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import InputForm from '../AI/InputForm';
+import Conversation from '../AI/Conversation';
 
 const AIChatSection = () => {
   const [value, setValue] = useState('');
+  const [message, setMessage] = useState<string | undefined>(undefined);
 
   const handleChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
@@ -12,7 +14,7 @@ const AIChatSection = () => {
 
   const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log(value);
+    setMessage(value);
     setValue('');
   };
 
@@ -26,11 +28,14 @@ const AIChatSection = () => {
             답변해드릴게요.
           </h6>
         </div>
-        <InputForm
-          onSubmit={handleSubmitForm}
-          value={value}
-          onChange={handleChangeInput}
-        />
+        <div className="grid gap-16">
+          <Conversation message={message} />
+          <InputForm
+            onSubmit={handleSubmitForm}
+            value={value}
+            onChange={handleChangeInput}
+          />
+        </div>
       </div>
     </section>
   );
