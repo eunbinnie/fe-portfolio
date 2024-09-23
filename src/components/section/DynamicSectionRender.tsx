@@ -1,5 +1,6 @@
 'use client';
 
+import AIChatSection from './AIChatSection';
 import ProjectSection from './ProjectSection';
 import ResumeSection from './ResumeSection';
 import SideProfile from './SideProfile';
@@ -18,6 +19,7 @@ const DynamicSectionRender = () => {
         <div className="grid h-fit flex-1 gap-20 rounded-3xl border border-solid border-gray-150 p-4 pt-10 lg:p-8 lg:pt-[60px]">
           <ResumeSection />
           <ProjectSection />
+          <AIChatSection />
         </div>
       </div>
     </section>

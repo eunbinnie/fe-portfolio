@@ -2,7 +2,10 @@ import Image from 'next/image';
 
 const FloatingButton = () => {
   return (
-    <div className="shadow-small fixed bottom-4 right-4 size-14 cursor-pointer rounded-full bg-silver transition-colors duration-300 ease-in-out hover:bg-white md:size-16">
+    <button
+      type="button"
+      className="shadow-small fixed bottom-4 right-4 size-14 cursor-pointer rounded-full bg-silver transition-colors duration-300 ease-in-out hover:bg-white md:size-16"
+    >
       <Image
         src="/icons/chatbot.svg"
         alt="AI와 채팅하기"
@@ -11,7 +14,7 @@ const FloatingButton = () => {
         priority
         className="object-cover p-3"
       />
-    </div>
+    </button>
   );
 };
 
