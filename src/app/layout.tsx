@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import Background from '@/components/StarContainer';
+import FloatingButton from '@/components/FloatingButton';
 
 export const metadata: Metadata = {
   title: '이은빈 | 프론트엔드 개발자 포트폴리오',
@@ -19,6 +20,7 @@ export default function RootLayout({
         <>
           <Background />
           <main>{children}</main>
+          <FloatingButton />
         </>
       </body>
     </html>
