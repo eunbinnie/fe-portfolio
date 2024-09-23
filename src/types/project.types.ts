@@ -4,8 +4,8 @@ export interface IProjectTag {
 
 export interface IWorkDetail {
   title: string;
-  image: string;
-  description: string;
+  trouble: string;
+  solve: string;
 }
 
 export interface IProjectItem extends IProjectTag {

@@ -1,23 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
 import { IWorkDetail } from '@/types/project.types';
-import Masonry from 'react-masonry-css';
 
 const WorkDetails = ({ data }: { data: IWorkDetail[] }) => {
   return (
     <div className="grid gap-8">
-      <div className="grid gap-1">
-        <h5 className="text-2xl font-medium text-white">What I Worked On</h5>
-        <h6 className="font-extralight text-white">작업한 내용</h6>
-      </div>
-
-      <Masonry
-        breakpointCols={{ default: 3, 768: 2, 425: 1 }}
-        className="flex gap-6 text-white"
-        columnClassName="flex flex-col gap-10"
-      >
+      <h2 className="text-2xl font-medium text-white">Trouble Shooting</h2>
+      <ul className="grid grid-cols-1 gap-x-5 gap-y-16 sm:grid-cols-2 md:grid-cols-3">
         {data.map((data, idx) => (
-          <div key={idx}>{data.title}</div>
+          <li key={idx} className="grid gap-2 text-white">
+            <h3 className="text-lg"># {data.title}</h3>
+            <p className="grid gap-1">
+              <span className="font-bold">[문제]</span>
+              <span className="text-gray-100">{data.trouble}</span>
+            </p>
+            <p className="grid gap-1">
+              <span className="font-bold">[해결]</span>
+              <span className="text-gray-100">{data.solve}</span>
+            </p>
+          </li>
         ))}
-      </Masonry>
+      </ul>
     </div>
   );
 };
