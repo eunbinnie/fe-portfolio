@@ -35,18 +35,18 @@ const AIChatSection = () => {
         <div>
           <form
             onSubmit={handleSubmitForm}
-            className="flex items-center gap-2 rounded-3xl bg-gray-50 p-2 pl-5"
+            className="flex items-center gap-2 rounded-3xl bg-gray-50 p-2 duration-300 focus-within:shadow-small sm:pl-5"
           >
             <input
               value={value}
               onChange={handleChangeInput}
-              className="flex-1 bg-inherit px-2 py-1 outline-none"
+              className="w-full flex-1 bg-inherit px-2 py-1 text-sm outline-none sm:text-base"
             />
             <button
               type="submit"
               disabled={buttonDisabled}
               className={cn(
-                'relative size-9 rounded-full transition-colors duration-300',
+                'relative size-7 rounded-full transition-colors duration-300 sm:size-9',
                 buttonDisabled ? 'bg-gray-100' : 'bg-black',
               )}
             >
