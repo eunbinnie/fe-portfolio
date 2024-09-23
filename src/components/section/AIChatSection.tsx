@@ -1,12 +1,10 @@
 'use client';
 
-import cn from '@/utils/cn';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import InputForm from '../AI/InputForm';
 
 const AIChatSection = () => {
   const [value, setValue] = useState('');
-  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const handleChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
@@ -18,10 +16,6 @@ const AIChatSection = () => {
     setValue('');
   };
 
-  useEffect(() => {
-    setButtonDisabled(value.length === 0);
-  }, [value]);
-
   return (
     <section>
       <div className="grid gap-8">
@@ -32,35 +26,11 @@ const AIChatSection = () => {
             답변해드릴게요.
           </h6>
         </div>
-        <div>
-          <form
-            onSubmit={handleSubmitForm}
-            className="flex items-center gap-2 rounded-3xl bg-gray-50 p-2 duration-300 focus-within:shadow-small sm:pl-5"
-          >
-            <input
-              value={value}
-              onChange={handleChangeInput}
-              className="w-full flex-1 bg-inherit px-2 py-1 text-sm outline-none sm:text-base"
-            />
-            <button
-              type="submit"
-              disabled={buttonDisabled}
-              className={cn(
-                'relative size-7 rounded-full transition-colors duration-300 sm:size-9',
-                buttonDisabled ? 'bg-gray-100' : 'bg-black',
-              )}
-            >
-              <Image
-                src="/icons/arrowTop.svg"
-                alt="보내기"
-                fill
-                sizes="max-width:100%"
-                priority
-                className="p-2"
-              />
-            </button>
-          </form>
-        </div>
+        <InputForm
+          onSubmit={handleSubmitForm}
+          value={value}
+          onChange={handleChangeInput}
+        />
       </div>
     </section>
   );
