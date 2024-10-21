@@ -62,4 +62,5 @@
   font-family: 'Wiro';
   src: url('/fonts/wiro/NanumGangInHanWiRo.woff2');
   font-weight: 400;
+  font-display: block;
 }
