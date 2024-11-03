@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -27,9 +28,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Pretendard', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        aespa: ['Aespa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        wiro: ['Wiro', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-pretendard)', ...defaultTheme.fontFamily.sans],
+        aespa: ['var(--font-aespa)', ...defaultTheme.fontFamily.sans],
+        wiro: ['var(--font-wiro)', ...defaultTheme.fontFamily.sans],
       },
       animation: {
         'infinite-slide-original':
