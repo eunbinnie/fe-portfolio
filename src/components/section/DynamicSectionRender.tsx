@@ -19,7 +19,8 @@ const DynamicSectionRender = () => {
         <div className="grid h-fit flex-1 gap-20 rounded-3xl border border-solid border-gray-150 p-4 pt-10 lg:p-8 lg:pt-[60px]">
           <ResumeSection />
           <ProjectSection />
-          <AIChatSection />
+          {/* TODO 주석 풀고 삭제하기 */}
+          {/* <AIChatSection /> */}
         </div>
       </div>
     </section>

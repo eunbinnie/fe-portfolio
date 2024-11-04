@@ -36,6 +36,8 @@ const config: Config = {
         'infinite-slide-original':
           'infinite-slide-original 70s linear infinite',
         'infinite-slide-copy': 'infinite-slide-copy 70s linear infinite',
+        'fade-in': 'fade-in 3s ease-in-out',
+        'fade-out': 'fade-out 3s ease-in-out',
       },
       keyframes: {
         'infinite-slide-original': {
@@ -47,6 +49,14 @@ const config: Config = {
         'infinite-slide-copy': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-200%)' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0.5' },
+          '100%': { opacity: '1' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0.5' },
         },
       },
       boxShadow: {
