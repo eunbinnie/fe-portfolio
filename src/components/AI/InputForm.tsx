@@ -18,7 +18,7 @@ const InputForm = ({ onSubmit, value, onChange }: InputFormProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex items-center gap-2 rounded-3xl bg-gray-50 p-2 duration-300 focus-within:shadow-small sm:pl-5"
+      className="flex items-center gap-2 rounded-3xl border border-solid border-gray-100 bg-gray-50 p-2 duration-300 sm:pl-5"
     >
       <input
         value={value}

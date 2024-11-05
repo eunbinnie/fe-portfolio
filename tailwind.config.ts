@@ -1,4 +1,3 @@
-import { transform } from 'next/dist/build/swc';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -73,6 +72,8 @@ const config: Config = {
       boxShadow: {
         small:
           'rgba(255, 255, 255, 0.2) 0px 3px 5px -1px, rgba(255, 255, 255, 0.14) 0px 6px 10px 0px, rgba(255, 255, 255, 0.12) 0px 1px 18px 0px',
+        leftSmall:
+          'rgba(255, 255, 255, 0.2) -5px 0px 8px -1px, rgba(255, 255, 255, 0.14) -8px 0px 12px -1px, rgba(255, 255, 255, 0.12) -10px 0px 15px 0px',
       },
       backgroundImage: {
         'left-top-gradient':
