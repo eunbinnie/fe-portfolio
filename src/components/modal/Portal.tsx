@@ -10,19 +10,22 @@ interface IModalProps {
   onClose: () => void;
 }
 
-const Modal = ({ active, children, onClose }: IModalProps) => {
+const Portal = ({ active, children, onClose }: IModalProps) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
     let timer: NodeJS.Timeout | null;
-    document.body.style.overflow = active ? 'hidden' : 'unset';
 
     if (active) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '10px';
       setVisible(true);
     } else {
       timer = setTimeout(() => {
+        document.body.style.overflow = 'unset';
+        document.body.style.paddingRight = '0';
         setVisible(false);
-      }, 1000);
+      }, 300);
     }
 
     return () => {
@@ -52,4 +55,4 @@ const Modal = ({ active, children, onClose }: IModalProps) => {
   );
 };
 
-export default Modal;
+export default Portal;

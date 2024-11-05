@@ -1,3 +1,4 @@
+import { transform } from 'next/dist/build/swc';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -36,8 +37,10 @@ const config: Config = {
         'infinite-slide-original':
           'infinite-slide-original 70s linear infinite',
         'infinite-slide-copy': 'infinite-slide-copy 70s linear infinite',
-        'fade-in': 'fade-in 1s ease-in-out',
-        'fade-out': 'fade-out 1s ease-in-out',
+        'fade-in': 'fade-in 0.3s ease-in-out',
+        'fade-out': 'fade-out 0.3s ease-in-out',
+        'slide-in-right': 'slide-in-right 0.3s ease-in-out',
+        'slide-out-right': 'slide-out-right 0.3s ease-in-out',
       },
       keyframes: {
         'infinite-slide-original': {
@@ -57,6 +60,14 @@ const config: Config = {
         'fade-out': {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        'slide-in-right': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'slide-out-right': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
         },
       },
       boxShadow: {

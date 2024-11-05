@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import Modal from './modal/Modal';
+import Portal from './modal/Portal';
 import { useState } from 'react';
+import ChatContainer from './AI/ChatContainer';
 
 const FloatingButton = () => {
   const [isActive, setIsActive] = useState(false);
@@ -27,9 +28,9 @@ const FloatingButton = () => {
           className="object-cover p-4"
         />
       </button>
-      <Modal active={isActive} onClose={handleModalActive}>
-        <h1 className="fixed left-0 top-0 text-white" />
-      </Modal>
+      <Portal active={isActive} onClose={handleModalActive}>
+        <ChatContainer active={isActive} />
+      </Portal>
     </>
   );
 };
