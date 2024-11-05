@@ -9,7 +9,7 @@ const Drawer = ({ active, children }: IDrawerProps) => {
   return (
     <div
       className={cn(
-        'shadow-leftSmall fixed inset-y-0 right-0 w-full max-w-[500px] bg-white p-4',
+        'fixed inset-y-0 right-0 w-full max-w-[500px] bg-white p-4 shadow-leftSmall',
         active ? 'animate-slide-in-right' : 'animate-slide-out-right',
       )}
     >
