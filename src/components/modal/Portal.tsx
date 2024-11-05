@@ -4,9 +4,11 @@ import cn from '@/utils/cn';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-interface IModalProps {
+const MODAL_TIMEOUT = 250;
+
+export interface IModalProps {
   active: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClose: () => void;
 }
 
@@ -25,7 +27,7 @@ const Portal = ({ active, children, onClose }: IModalProps) => {
         document.body.style.overflow = 'unset';
         document.body.style.paddingRight = '0';
         setVisible(false);
-      }, 300);
+      }, MODAL_TIMEOUT);
     }
 
     return () => {
@@ -43,7 +45,7 @@ const Portal = ({ active, children, onClose }: IModalProps) => {
             <div
               onClick={onClose}
               className={cn(
-                'fixed inset-0 bg-black bg-opacity-[0.7]',
+                'fill-mode-forwards fixed inset-0 bg-black bg-opacity-[0.7]',
                 active ? 'animate-fade-in' : 'animate-fade-out',
               )}
             />

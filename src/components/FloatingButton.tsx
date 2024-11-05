@@ -29,7 +29,7 @@ const FloatingButton = () => {
         />
       </button>
       <Portal active={isActive} onClose={handleModalActive}>
-        <ChatContainer active={isActive} />
+        <ChatContainer active={isActive} onClose={handleModalActive} />
       </Portal>
     </>
   );
