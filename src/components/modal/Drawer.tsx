@@ -11,7 +11,7 @@ const Drawer = ({ active, children, onClose }: IModalProps) => {
   return (
     <div
       className={cn(
-        'fill-mode-forwards fixed inset-y-0 right-0 max-w-[500px] bg-white p-4 shadow-leftSmall',
+        'fill-mode-forwards fixed inset-y-0 right-0 w-full max-w-[500px] bg-white p-4 shadow-leftSmall',
         active ? 'animate-slide-in-right' : 'animate-slide-out-right',
       )}
     >
