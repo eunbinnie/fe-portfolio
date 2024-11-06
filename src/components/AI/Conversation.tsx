@@ -1,3 +1,9 @@
+'use client';
+
+import Lottie from 'react-lottie-player';
+import cn from '@/utils/cn';
+import loadingJson from 'public/lotties/loading.json';
+
 interface ConversationProps {
   message: string;
   response: string;
@@ -14,9 +20,24 @@ const Conversation = ({ message, response }: ConversationProps) => {
         </div>
       )}
       <div className="flex">
-        <p className="rounded-3xl rounded-bl-none bg-gray-100 px-5 py-3">
-          {response}
-        </p>
+        <div
+          className={cn(
+            'rounded-3xl rounded-bl-none bg-gray-100',
+            response === '' ? 'p-0' : 'px-5 py-3',
+          )}
+        >
+          {response !== '' ? (
+            <p>{response}</p>
+          ) : (
+            <Lottie
+              animationData={loadingJson}
+              play
+              loop
+              speed={0.75}
+              style={{ width: '80px' }}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

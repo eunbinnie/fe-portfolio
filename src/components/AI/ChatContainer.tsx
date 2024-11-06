@@ -21,23 +21,29 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     setValue(e.target.value);
   };
 
+  const setSystemChat = (value: string) => {
+    setChatList((prev) => {
+      const updated = [...prev];
+      updated[updated.length - 1].system = value;
+      return updated;
+    });
+  };
+
   const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
     e,
   ) => {
     e.preventDefault();
-    setChatList((prev) => [...prev, { user: value, system: '... 로딩중' }]);
+    setChatList((prev) => [...prev, { user: value, system: '' }]);
     setValue('');
 
     try {
       const res = (await axios.post('/api/chat', { question: value })).data
         .choices[0].message.content;
-
-      setChatList((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1].system = res;
-        return updated;
-      });
+      setSystemChat(res);
     } catch (error) {
+      setSystemChat(
+        '죄송합니다, 현재 문제가 발생하여 채팅을 지속할 수 없습니다.',
+      );
       console.error('Failed to fetch chat response: ', error);
     }
   };
