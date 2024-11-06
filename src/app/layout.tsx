@@ -94,6 +94,12 @@ export default function RootLayout({
       lang="ko"
       className={`${pretendard.variable} ${aespa.variable} ${wiro.variable}`}
     >
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
+        />
+      </head>
       <body className="bg-black">
         <>
           <Background />
