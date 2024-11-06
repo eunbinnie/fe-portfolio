@@ -1,11 +1,11 @@
 interface ConversationProps {
-  message?: string;
-  response?: string;
+  message: string;
+  response: string;
 }
 
 const Conversation = ({ message, response }: ConversationProps) => {
   return (
-    <div className="flex flex-1 flex-col gap-10 overflow-auto">
+    <div className="mb-5 flex flex-1 flex-col gap-5">
       {message && (
         <div className="flex justify-end">
           <p className="rounded-3xl rounded-br-none bg-gray-200 px-5 py-3 text-white">

@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     messages: [
       {
         role: 'system',
-        content: '너의 이름은 이은빈이야.',
+        content: process.env.MY_AI_DATA as string,
       },
       {
         role: 'user',

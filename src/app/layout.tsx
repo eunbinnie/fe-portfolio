@@ -97,7 +97,7 @@ export default function RootLayout({
       <head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
+          content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content, user-scalable=no"
         />
       </head>
       <body className="bg-black">
