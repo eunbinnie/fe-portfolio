@@ -22,7 +22,7 @@ const Conversation = ({ message, response }: ConversationProps) => {
       <div className="flex">
         <div
           className={cn(
-            'rounded-3xl rounded-bl-none bg-gray-100',
+            'rounded-3xl rounded-bl-none bg-[#f5f5f5]',
             response === '' ? 'p-0' : 'px-5 py-3',
           )}
         >

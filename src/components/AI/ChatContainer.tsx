@@ -58,9 +58,11 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     <Drawer active={active} onClose={onClose}>
       <div className="size-full">
         <div className="flex h-full flex-col gap-8 overflow-hidden">
-          <div className="flex flex-col gap-1">
-            <h5 className="text-xl font-medium">Chat with AI</h5>
-            <h6 className="break-keep text-sm">
+          <div>
+            <h5 className="pr-5 text-xl font-medium md:text-2xl">
+              Chat with AI
+            </h5>
+            <h6 className="break-keep text-sm text-[#656565]">
               저에 대해 궁금한 점이 있으신가요? 무엇이든 물어보세요!
             </h6>
           </div>
