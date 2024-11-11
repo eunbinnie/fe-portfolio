@@ -1,3 +1,9 @@
+'use client';
+
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import cn from '@/utils/cn';
+import { useEffect, useRef, useState } from 'react';
+
 const TEXT = {
   start: ['WELCOME', 'TO MY', 'PORTFOLIO'],
   end: ['THANKS FOR', 'VISITING', 'MY PORTFOLIO'],
@@ -11,13 +17,50 @@ const TEXT = {
  * @param {'start'|'end'} message 'start'는 포트폴리오 시작 문구를, 'end'는 마무리 문구를 나타냅니다.
  */
 const MessageSection = ({ message }: { message: 'start' | 'end' }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInViewport = useIntersectionObserver(ref, { threshold: 0.5 });
+  const [animated, setAnimated] = useState(false);
+
+  const countNumber = (index: number) => {
+    let sum: number = 0;
+
+    for (let i = 0; i < index; i++) {
+      sum += TEXT[message][i].length;
+    }
+
+    return sum;
+  };
+
+  useEffect(() => {
+    if (isInViewport && !animated) {
+      setAnimated(true);
+    }
+  }, [isInViewport, animated]);
+
   return (
     <section className="max-container flex min-h-dvh items-center justify-center">
-      <p className="metalic-text grid break-all py-8 text-center font-aespa text-[11vw] leading-[1.2] sm:text-[54px] md:text-8xl lg:text-9xl">
-        {TEXT[message].map((message, idx) => (
-          <span key={idx}>{message}</span>
+      <div className="py-8 text-center">
+        {TEXT[message].map((word, index) => (
+          <p key={index}>
+            {word.split('').map((char, idx) => (
+              <span
+                key={char + idx}
+                ref={ref}
+                className={cn(
+                  'metalic-text break-all font-aespa text-[11vw] leading-[1.2] sm:text-[54px] md:text-8xl lg:text-9xl',
+                  animated ? 'opacity-100' : 'opacity-0',
+                )}
+                style={{
+                  transitionDelay: `${(index > 0 ? countNumber(index) + idx : idx) * 0.05}s`,
+                  transitionDuration: '2.5s',
+                }}
+              >
+                {char}
+              </span>
+            ))}
+          </p>
         ))}
-      </p>
+      </div>
     </section>
   );
 };
