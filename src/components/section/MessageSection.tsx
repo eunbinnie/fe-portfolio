@@ -2,7 +2,7 @@
 
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import cn from '@/utils/cn';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const TEXT = {
   start: ['WELCOME', 'TO MY', 'PORTFOLIO'],
@@ -18,8 +18,9 @@ const TEXT = {
  */
 const MessageSection = ({ message }: { message: 'start' | 'end' }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInViewport = useIntersectionObserver(ref, { threshold: 0.5 });
-  const [animated, setAnimated] = useState(false);
+  const { animated } = useIntersectionObserver(ref, {
+    threshold: 0,
+  });
 
   const countNumber = (index: number) => {
     let sum: number = 0;
@@ -31,28 +32,24 @@ const MessageSection = ({ message }: { message: 'start' | 'end' }) => {
     return sum;
   };
 
-  useEffect(() => {
-    if (isInViewport && !animated) {
-      setAnimated(true);
-    }
-  }, [isInViewport, animated]);
-
   return (
-    <section className="max-container flex min-h-dvh items-center justify-center">
+    <section
+      ref={ref}
+      className="max-container flex min-h-dvh items-center justify-center"
+    >
       <div className="py-8 text-center">
         {TEXT[message].map((word, index) => (
           <p key={index}>
             {word.split('').map((char, idx) => (
               <span
                 key={char + idx}
-                ref={ref}
                 className={cn(
-                  'metalic-text break-all font-aespa text-[11vw] leading-[1.2] sm:text-[54px] md:text-8xl lg:text-9xl',
-                  animated ? 'opacity-100' : 'opacity-0',
+                  'metalic-text break-all font-aespa text-[11vw] leading-[1.2] transition-opacity sm:text-[54px] md:text-8xl lg:text-9xl',
+                  animated ? 'opacity-100 blur-0' : 'opacity-0 blur-[2px]',
                 )}
                 style={{
-                  transitionDelay: `${(index > 0 ? countNumber(index) + idx : idx) * 0.05}s`,
-                  transitionDuration: '2.5s',
+                  transitionDelay: `${0.5 + (index > 0 ? countNumber(index) + idx : idx) * 0.05}s`,
+                  transitionDuration: '3s',
                 }}
               >
                 {char}

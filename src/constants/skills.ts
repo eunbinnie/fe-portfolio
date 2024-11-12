@@ -1,7 +1,7 @@
 export interface Skills {
   src: string;
   title: string;
-  level?: number;
+  level: number;
 }
 
 const SKILLS: Skills[] = [

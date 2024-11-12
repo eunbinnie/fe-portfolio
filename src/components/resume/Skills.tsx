@@ -1,11 +1,24 @@
+'use client';
+
 import SKILLS from '@/constants/skills';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Image from 'next/image';
+import { useRef } from 'react';
 
 const Skills = () => {
+  const liRef = useRef<HTMLLIElement>(null);
+  const { animated } = useIntersectionObserver(liRef, {
+    threshold: 0,
+  });
+
   return (
     <ul className="grid gap-x-4 gap-y-16 sm:grid-cols-3 md:grid-cols-5">
       {SKILLS.map((skill, idx) => (
-        <li key={idx} className="grid place-items-center gap-4 px-3">
+        <li
+          key={idx}
+          ref={liRef}
+          className="grid place-items-center gap-4 px-3"
+        >
           <figure className="relative aspect-square size-[60px]">
             <Image
               src={skill.src}
@@ -19,8 +32,11 @@ const Skills = () => {
           <span className="text-xs text-white">{skill.title}</span>
           <div className="h-2 w-full rounded-2xl bg-gray-150">
             <div
-              className="h-full rounded-2xl bg-white-silver-gradient"
-              style={{ width: `${skill.level}%` }}
+              className="h-full rounded-2xl bg-white-silver-gradient transition-[width] ease-in-out"
+              style={{
+                width: animated ? `${skill.level}%` : '0',
+                transitionDuration: `${skill.level * 25}ms`,
+              }}
             />
           </div>
         </li>

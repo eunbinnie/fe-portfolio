@@ -7,10 +7,11 @@ interface IObserverOptions {
 }
 
 const useIntersectionObserver = (
-  targetRef: RefObject<HTMLDivElement>,
+  targetRef: RefObject<HTMLElement>,
   { threshold = 0.5, root = null, rootMargin = '0px' }: IObserverOptions,
 ) => {
   const [isInViewport, setIsInViewport] = useState(false);
+  const [animated, setAnimated] = useState(false);
   const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -38,7 +39,13 @@ const useIntersectionObserver = (
     };
   }, [targetRef, threshold, root, rootMargin]);
 
-  return isInViewport;
+  useEffect(() => {
+    if (isInViewport && !animated) {
+      setAnimated(true);
+    }
+  }, [isInViewport, animated]);
+
+  return { isInViewport, animated };
 };
 
 export default useIntersectionObserver;
