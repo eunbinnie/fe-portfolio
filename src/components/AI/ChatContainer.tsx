@@ -15,7 +15,13 @@ interface ChatData {
 const ChatContainer = ({ active, onClose }: IModalProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [value, setValue] = useState('');
-  const [chatList, setChatList] = useState<ChatData[]>([]);
+  const [chatList, setChatList] = useState<ChatData[]>([
+    {
+      system:
+        '안녕하세요! 이은빈의 포트폴리오에 오신 걸 환영합니다 😊 궁금한 점이 있으신가요? 자유롭게 질문해주세요!',
+      user: '',
+    },
+  ]);
 
   const handleChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
@@ -29,15 +35,9 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     });
   };
 
-  const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
-    e,
-  ) => {
-    e.preventDefault();
-    setChatList((prev) => [...prev, { user: value, system: '' }]);
-    setValue('');
-
+  const postChat = async (chat: string) => {
     try {
-      const res = (await axios.post('/api/chat', { question: value })).data
+      const res = (await axios.post('/api/chat', { question: chat })).data
         .choices[0].message.content;
       setSystemChat(res);
     } catch (error) {
@@ -48,11 +48,34 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     }
   };
 
+  const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
+    e,
+  ) => {
+    e.preventDefault();
+    setChatList((prev) => [...prev, { user: value, system: '' }]);
+    setValue('');
+    postChat(value);
+  };
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current?.scrollHeight;
     }
   }, [chatList]);
+
+  // useEffect(() => {
+  //   setChatList((prev) => [
+  //     ...prev,
+  //     {
+  //       user: '',
+  //       system:
+  //         '사용자가 채팅방에 입장하면 할 수 있는 첫인사와 너한테 궁금한 점을 물어보라는 멘트해줘.',
+  //     },
+  //   ]);
+  //   postChat(
+  //     '사용자가 채팅방에 입장하면 할 수 있는 첫인사와 너한테 궁금한 점을 물어보라는 멘트해줘.',
+  //   );
+  // }, []);
 
   return (
     <Drawer active={active} onClose={onClose}>
