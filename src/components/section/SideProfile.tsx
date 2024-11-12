@@ -2,8 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import InfoItem from '../resume/InfoItem';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import cn from '@/utils/cn';
 
 const LINK = [
   {
@@ -27,6 +29,8 @@ const LINK = [
  */
 const SideProfile = () => {
   const [src, setSrc] = useState('/icons/profile.png');
+  const ref = useRef<HTMLElement>(null);
+  const { animated } = useIntersectionObserver(ref, { threshold: 0 });
 
   const handleMouseEnter = () => {
     setSrc('/icons/profile2.png');
@@ -37,7 +41,13 @@ const SideProfile = () => {
   };
 
   return (
-    <section className="grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 lg:sticky lg:top-6 lg:p-8 lg:pt-[60px]">
+    <section
+      ref={ref}
+      className={cn(
+        'grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 transition-[opacity,transform] duration-1000 lg:sticky lg:top-6 lg:p-8 lg:pt-[60px]',
+        animated ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0',
+      )}
+    >
       <div className="flex flex-wrap items-center gap-6 lg:flex-col">
         <figure
           onMouseEnter={handleMouseEnter}
