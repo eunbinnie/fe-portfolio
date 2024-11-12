@@ -1,10 +1,24 @@
+'use client';
+
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import { IProjectItem } from '@/types/project.types';
+import cn from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef } from 'react';
 
 const ProjectItem = ({ data }: { data: IProjectItem }) => {
+  const ref = useRef<HTMLLIElement>(null);
+  const { animated } = useIntersectionObserver(ref, { threshold: 0.3 });
+
   return (
-    <li className="scale-group grid grid-cols-1 grid-rows-[repeat(4,auto),1fr] place-content-start gap-3">
+    <li
+      ref={ref}
+      className={cn(
+        'scale-group grid grid-cols-1 grid-rows-[repeat(4,auto),1fr] place-content-start gap-3 transition-opacity duration-[1000ms]',
+      )}
+      style={{ opacity: animated ? '1' : '0' }}
+    >
       <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-white">
         <Image
           src={data.thumbnail}
