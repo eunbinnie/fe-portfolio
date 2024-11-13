@@ -22,8 +22,10 @@ const ProjectPage = ({ params }: { params: { id: number } }) => {
     <div
       ref={ref}
       className={cn(
-        'max-container grid gap-20 pb-[100px] transition-[opacity,transform] duration-1000',
-        animated ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0',
+        'max-container grid gap-20 pb-[100px] transition-[opacity,transform] duration-[3000ms]',
+        animated
+          ? 'translate-y-0 opacity-100'
+          : 'translate-y-4 opacity-0 md:translate-y-5',
       )}
     >
       <ProjectInfo data={data} />

@@ -50,11 +50,11 @@ const SKILLS: Skills[] = [
     title: 'TanStack Query',
     level: 55,
   },
-  {
-    src: '/icons/zustand.svg',
-    title: 'Zustand',
-    level: 55,
-  },
+  // {
+  //   src: '/icons/zustand.svg',
+  //   title: 'Zustand',
+  //   level: 55,
+  // },
 ];
 
 export default SKILLS;

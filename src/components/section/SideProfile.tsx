@@ -44,8 +44,10 @@ const SideProfile = () => {
     <section
       ref={ref}
       className={cn(
-        'grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 transition-[opacity,transform] duration-1000 lg:sticky lg:top-6 lg:p-8 lg:pt-[60px]',
-        animated ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0',
+        'grid h-fit gap-8 rounded-3xl border border-solid border-gray-150 p-4 transition-[opacity,transform] duration-[3000ms] lg:sticky lg:top-6 lg:p-8 lg:pt-[60px]',
+        animated
+          ? 'translate-y-0 opacity-100'
+          : 'translate-y-4 opacity-0 md:translate-y-5',
       )}
     >
       <div className="flex flex-wrap items-center gap-6 lg:flex-col">

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -6,6 +7,7 @@ import Conversation from './Conversation';
 import InputForm from './InputForm';
 import { IModalProps } from '../modal/Portal';
 import axios from 'axios';
+import Image from 'next/image';
 
 interface ChatData {
   system: string;
@@ -35,9 +37,14 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     });
   };
 
-  const postChat = async (chat: string) => {
+  const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
+    e,
+  ) => {
+    e.preventDefault();
+    setChatList((prev) => [...prev, { user: value, system: '' }]);
+    setValue('');
     try {
-      const res = (await axios.post('/api/chat', { question: chat })).data
+      const res = (await axios.post('/api/chat', { question: value })).data
         .choices[0].message.content;
       setSystemChat(res);
     } catch (error) {
@@ -48,14 +55,16 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     }
   };
 
-  const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
-    e,
-  ) => {
-    e.preventDefault();
-    setChatList((prev) => [...prev, { user: value, system: '' }]);
-    setValue('');
-    postChat(value);
-  };
+  useEffect(() => {
+    if (!active) {
+      sessionStorage.setItem('chatList', JSON.stringify(chatList));
+    } else {
+      const chatStorage = sessionStorage.getItem('chatList');
+      if (chatStorage) {
+        setChatList(JSON.parse(chatStorage));
+      }
+    }
+  }, [active]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -63,31 +72,26 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     }
   }, [chatList]);
 
-  // useEffect(() => {
-  //   setChatList((prev) => [
-  //     ...prev,
-  //     {
-  //       user: '',
-  //       system:
-  //         '사용자가 채팅방에 입장하면 할 수 있는 첫인사와 너한테 궁금한 점을 물어보라는 멘트해줘.',
-  //     },
-  //   ]);
-  //   postChat(
-  //     '사용자가 채팅방에 입장하면 할 수 있는 첫인사와 너한테 궁금한 점을 물어보라는 멘트해줘.',
-  //   );
-  // }, []);
-
   return (
     <Drawer active={active} onClose={onClose}>
       <div className="size-full">
         <div className="flex h-full flex-col gap-8 overflow-hidden">
-          <div>
-            <h5 className="pr-5 text-xl font-medium md:text-2xl">
-              Chat with AI
-            </h5>
-            <h6 className="break-keep text-sm text-[#656565]">
-              저에 대해 궁금한 점이 있으신가요? 무엇이든 물어보세요!
-            </h6>
+          <div className="flex items-center gap-4">
+            <div className="relative size-12 overflow-hidden rounded-full md:size-14">
+              <Image
+                src="/icons/chatProfile.jpg"
+                alt="이은빈 프로필 이미지"
+                fill
+                priority
+                sizes="max-width:100%"
+              />
+            </div>
+            <div className="grid">
+              <h2 className="text-lg font-bold">이은빈</h2>
+              <span className="text-sm text-[#656565]">
+                AI와 대화를 시작해보세요
+              </span>
+            </div>
           </div>
           <div ref={scrollRef} className="flex-1 overflow-auto">
             {chatList.map((chat, idx) => (

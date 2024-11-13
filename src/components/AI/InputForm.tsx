@@ -23,7 +23,8 @@ const InputForm = ({ onSubmit, value, onChange }: InputFormProps) => {
       <input
         value={value}
         onChange={onChange}
-        className="w-full flex-1 bg-inherit px-2 py-1 text-sm outline-none sm:text-base"
+        placeholder="메시지를 입력해 주세요."
+        className="w-full flex-1 bg-inherit px-2 py-1 text-sm outline-none placeholder:text-gray-100 sm:text-base"
       />
       <button
         type="submit"
