@@ -84,8 +84,7 @@ export const metadata: Metadata = {
   title: '이은빈 | 프론트엔드 개발자 포트폴리오',
   openGraph: {
     title: '이은빈 | 프론트엔드 개발자 포트폴리오',
-    description:
-      '프론트엔드 개발자 이은빈의 포트폴리오입니다. 대화를 통해 다양한 프로젝트와 성장 과정을 함께 확인해보세요!',
+    description: '대화를 통해 다양한 프로젝트와 성장 과정을 함께 확인해보세요!',
     images: [
       {
         url: '/opengraph-image.png',
