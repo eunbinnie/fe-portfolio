@@ -7,21 +7,6 @@ import InfoItem from '../resume/InfoItem';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import cn from '@/utils/cn';
 
-const LINK = [
-  {
-    href: 'https://github.com/eunbinnie',
-    src: '/icons/github.svg',
-    alt: 'github',
-  },
-  {
-    href: '/files/resume.pdf',
-    src: '/icons/pdf.svg',
-    alt: 'pdf 다운로드',
-    type: 'application/pdf',
-    download: '이은빈_프론트엔드 개발자 이력서',
-  },
-];
-
 /**
  * SideProfile 컴포넌트는 개인정보, GitHub 및 Notion 링크를 프로필 카드 형태로 렌더링합니다.
  *
@@ -75,25 +60,36 @@ const SideProfile = () => {
             Front-End Developer
           </p>
           <div className="flex items-center gap-4 pl-2 lg:justify-center lg:pl-0">
-            {LINK.map((data, idx) => (
-              <Link
-                key={idx}
-                href={data.href}
-                target="_blank"
-                download={data?.download}
-                type={data?.type}
-                className="relative size-[18px]"
-              >
-                <Image
-                  src={data.src}
-                  alt={data.alt}
-                  fill
-                  priority
-                  sizes="max-width:100%"
-                  className="object-contain"
-                />
-              </Link>
-            ))}
+            <Link
+              href="https://github.com/eunbinnie"
+              target="_blank"
+              className="relative size-[18px]"
+            >
+              <Image
+                src="/icons/github.svg"
+                alt="github"
+                fill
+                priority
+                sizes="max-width:100%"
+                className="object-contain"
+              />
+            </Link>
+            <a
+              href="/files/resume.pdf"
+              target="_blank"
+              type="application/pdf"
+              download="이은빈_프론트엔드 개발자 이력서"
+              className="relative size-[18px]"
+            >
+              <Image
+                src="/icons/pdf.svg"
+                alt="이력서 다운로드"
+                fill
+                priority
+                sizes="max-width:100%"
+                className="object-contain"
+              />
+            </a>
           </div>
         </div>
       </div>
