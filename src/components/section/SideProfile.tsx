@@ -12,7 +12,6 @@ const LINK = [
     href: 'https://github.com/eunbinnie',
     src: '/icons/github.svg',
     alt: 'github',
-    target: '_blank',
   },
   {
     href: '/files/resume.pdf',
@@ -80,7 +79,7 @@ const SideProfile = () => {
               <Link
                 key={idx}
                 href={data.href}
-                target={data?.target}
+                target="_blank"
                 download={data?.download}
                 type={data?.type}
                 className="relative size-[18px]"
