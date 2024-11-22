@@ -12,11 +12,14 @@ const LINK = [
     href: 'https://github.com/eunbinnie',
     src: '/icons/github.svg',
     alt: 'github',
+    target: '_blank',
   },
   {
-    href: 'https://iron-ton-192.notion.site/Resume-7f3bc17318574c589a25009123c1a522',
-    src: '/icons/notion.svg',
-    alt: 'notion',
+    href: '/files/resume.pdf',
+    src: '/icons/pdf.svg',
+    alt: 'pdf 다운로드',
+    type: 'application/pdf',
+    download: '이은빈_프론트엔드 개발자 이력서',
   },
 ];
 
@@ -77,7 +80,9 @@ const SideProfile = () => {
               <Link
                 key={idx}
                 href={data.href}
-                target="_blank"
+                target={data?.target}
+                download={data?.download}
+                type={data?.type}
                 className="relative size-[18px]"
               >
                 <Image
