@@ -75,10 +75,9 @@ const SideProfile = () => {
               />
             </Link>
             <a
-              href="/files/resume.pdf"
+              href="/files/이은빈_프론트엔드_이력서.pdf"
               target="_blank"
               type="application/pdf"
-              download="이은빈_프론트엔드 개발자 이력서"
               className="relative size-[18px]"
             >
               <Image

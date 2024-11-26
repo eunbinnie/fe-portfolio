@@ -8,6 +8,8 @@ import InputForm from './InputForm';
 import { IModalProps } from '../modal/Portal';
 import axios from 'axios';
 import Image from 'next/image';
+import { db } from '@/lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 interface ChatData {
   system: string;
@@ -47,6 +49,10 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
       const res = (await axios.post('/api/chat', { question: value })).data
         .choices[0].message.content;
       setSystemChat(res);
+      await addDoc(collection(db, 'portfolio'), {
+        user: value,
+        system: res,
+      });
     } catch (error) {
       setSystemChat(
         '죄송합니다, 현재 문제가 발생하여 채팅을 지속할 수 없습니다.',
