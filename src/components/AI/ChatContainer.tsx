@@ -50,6 +50,7 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
         .choices[0].message.content;
       setSystemChat(res);
       await addDoc(collection(db, 'portfolio'), {
+        date: new Date(),
         user: value,
         system: res,
       });
