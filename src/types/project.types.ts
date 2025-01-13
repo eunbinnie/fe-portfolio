@@ -9,7 +9,7 @@ export interface IWorkDetail {
 }
 
 export interface IProjectItem extends IProjectTag {
-  id: number;
+  id?: number;
   title: string;
   thumbnail: string;
   skills: string[];

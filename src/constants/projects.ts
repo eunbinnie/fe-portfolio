@@ -2,7 +2,6 @@ import { IProjectItem } from '@/types/project.types';
 
 const PROJECTS: IProjectItem[] = [
   {
-    id: 1,
     title: 'GlobalNomad',
     tag: 'Frontend Development',
     thumbnail: '/icons/globalNomad.svg',
@@ -15,7 +14,8 @@ const PROJECTS: IProjectItem[] = [
       'Tailwind CSS',
     ],
     summary: [
-      'TanStack Query의 SSR Prefetching 및 refetch 기능을 활용한 데이터 업데이트 기능 구현',
+      'React Query의 SSR prefetching과 refetch를 활용해 초기 로딩 성능을 개선하고, LCP를 4.5초에서 1.0초로 단축',
+      'ReactQuill의 SSR 미지원 문제를 dynamic import로 해결하고, UI 전환의 일관성을 확보',
       '마크다운 에디터와 이미지 DnD, 우편번호 API 연동을 통해 체험 등록/수정 페이지 구현',
       '내 정보 수정 시 데이터 유효성 검사와 쿠키 만료 처리로 보안 강화',
       '후기 작성 모달에 Lottie 애니메이션을 추가해 동적인 사용자 경험 제공',
@@ -69,19 +69,27 @@ const PROJECTS: IProjectItem[] = [
     demoLink: 'https://sp-globalnomad-6-9.vercel.app/',
   },
   {
-    id: 2,
     title: 'WekitBucket',
     tag: 'Frontend Development',
     thumbnail: '/icons/wekitbucket.svg',
     skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'Tailwind CSS'],
     summary: [
-      '자유게시판 리스트 페이지 개발 및 공통 페이지네이션 컴포넌트 제작',
+      'SSR 전환 시 발생한 hydration 오류를 시간 불일치 문제로 진단하고, 커스텀 훅으로 시간을 통일해 렌더링 속도 개선',
+      'useSearchParams로 새로고침 시 상태 유지 구현',
       'marked 라이브러리를 활용한 마크다운 파싱 및 상세 페이지 렌더링',
+      'React.forwardRef()를 사용해 register 전달 오류를 해결 및 재사용 가능한 입력 컴포넌트를 구현',
       '로그인 페이지 퍼블리싱 및 API 결과 기반 화면 구현',
     ],
     headCount: 5,
     duration: '2024.06.21 ~ 2024.07.19',
     role: [
+      {
+        title: '자유게시판 SSR 문제',
+        trouble:
+          '자유게시판 페이지를 SSR로 전환했을 때, hydration 오류가 발생하여 초기 렌더링 속도가 저하되었고, CSR로 인해 사용자 경험이 악화되었습니다.',
+        solve:
+          'SSR을 통해 초기 렌더링 속도를 개선하는 작업을 진행했습니다. hydration 오류의 원인은 dayjs 라이브러리가 서버에서는 UTC 시간을, 클라이언트에서는 KST 시간을 사용하여 서버와 클라이언트 간 시간 불일치가 발생한 것이었습니다. 이를 해결하기 위해 시간 포맷팅 로직을 커스텀 훅으로 분리하고, 서버와 클라이언트 간 시간을 통일하여 문제를 해결했습니다.',
+      },
       {
         title: '컴포넌트에 register 전달 시 발생하는 에러',
         trouble:
@@ -90,7 +98,7 @@ const PROJECTS: IProjectItem[] = [
           '에러 메시지에서 React.forwardRef() 사용을 권장하고 있어 이를 적용해 문제를 해결했습니다. 문제의 원인은 register가 폼 필드에 직접 연결되지 않아 참조가 끊어진 것이었습니다. React.forwardRef()를 사용함으로써 부모 컴포넌트에서 전달된 ref를 자식 컴포넌트가 직접 참조할 수 있게 되어, register가 폼 필드에 올바르게 연결되었습니다. 이로써 react-hook-form과의 연결 문제를 해결하고, 값 전달도 정상적으로 이루어졌습니다.',
       },
       {
-        title: '자유게시판 리스트 새로고침 시 데이터 초기화 문제',
+        title: '새로고침 시 데이터 초기화 문제',
         trouble:
           '자유게시판 리스트 페이지에서 정렬, 검색, 페이지네이션 기능을 사용한 후 다른 페이지로 이동했다가 다시 돌아오거나 새로고침했을 때, 해당 기능이 적용되지 않고 초기 상태로 돌아가는 문제가 발생했습니다.',
         solve:
@@ -101,7 +109,6 @@ const PROJECTS: IProjectItem[] = [
     demoLink: 'https://wekitbucket.vercel.app/',
   },
   {
-    id: 3,
     title: 'Fandom-K',
     tag: 'Frontend Development',
     thumbnail: '/icons/fandomK.svg',
@@ -109,6 +116,7 @@ const PROJECTS: IProjectItem[] = [
     summary: [
       '마이페이지 퍼블리싱 및 전체 기능 구현 담당',
       'Swiper를 이용해 아이돌 리스트 슬라이드 변경 시마다 필요한 데이터만 호출, 대량의 데이터에서도 성능 최적화',
+      '슬라이드 이동과 데이터 로드를 분리해 즉시 전환과 스켈레톤 UI로 딜레이 최소화',
       'localStorage를 활용한 관심 아이돌 추가/삭제 기능 구현, 사이트 재방문 시에도 관심 아이돌 정보 유지',
     ],
     headCount: 5,
@@ -140,14 +148,33 @@ const PROJECTS: IProjectItem[] = [
     demoLink: 'https://sprint11fandom-k.netlify.app/',
   },
   {
-    id: 4,
+    title: '그라운드시소',
+    tag: 'Web Publishing',
+    thumbnail: '/icons/groundseesaw.svg',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    summary: [
+      'JavaScript의 Date 객체를 활용해 날짜 선택 검증 로직을 구현하여 구매 프로세스 구축',
+    ],
+    headCount: 1,
+    duration: '2023.09 ~ 2023.10',
+    role: [
+      {
+        title: '달력 옵션 미제공 문제',
+        trouble:
+          '전시 날짜를 선택할 수 있는 달력 옵션을 구현해야 했지만, 카페24 플랫폼은 주로 쇼핑몰 기능을 제공하기 때문에 기본적으로 달력 옵션을 지원하지 않는 문제가 발생했습니다.',
+        solve:
+          '연/월/일을 각각 나누어 옵션으로 설정해 날짜를 선택할 수 있도록 구현했습니다. 그러나 카페24의 옵션 구조상, 품절 처리를 하지 않는 한 사용자가 선택하지 못하도록 하는 기능을 지원하지 않았습니다. 이를 보완하기 위해 사용자가 날짜를 선택한 후, Date 객체를 활용하여 데이터를 검증하고 이미 지난 날짜의 상품을 추가하려 할 경우, "지난 날짜의 상품은 구매할 수 없다"는 alert 메시지를 띄워 문제를 해결했습니다.',
+      },
+    ],
+    demoLink: 'https://groundseesaw.co.kr/',
+  },
+  {
     title: 'Feelkeen',
     tag: 'Web Publishing',
     thumbnail: '/icons/feelkeen.svg',
     skills: ['HTML', 'CSS', 'JavaScript'],
     summary: [
-      '카페24 플랫폼 기반 국내몰 및 해외몰 지원 쇼핑몰 퍼블리싱 담당',
-      '회원 등급에 따른 페이지 리다이렉트 기능 구현',
+      'URL 쿼리 매개변수로 회원 등급을 판별하고, 등급별 맞춤 콘텐츠를 제공하는 리다이렉션 로직을 구현',
     ],
     headCount: 1,
     duration: '2023.07 ~ 2023.11',
@@ -163,40 +190,24 @@ const PROJECTS: IProjectItem[] = [
     demoLink: 'https://feelkeen.com/',
   },
   {
-    id: 5,
-    title: '그라운드시소',
-    tag: 'Web Publishing',
-    thumbnail: '/icons/groundseesaw.svg',
-    skills: ['HTML', 'CSS', 'JavaScript'],
-    summary: [
-      '기존 사이트의 카페24 플랫폼 마이그레이션 작업 담당',
-      '전시 날짜 선택 및 이전 날짜 선택 불가 기능 구현',
-    ],
-    headCount: 1,
-    duration: '2023.09 ~ 2023.10',
-    role: [
-      {
-        title: '달력 옵션 미제공 문제',
-        trouble:
-          '전시 날짜를 선택할 수 있는 달력 옵션을 구현해야 했지만, 카페24 플랫폼은 주로 쇼핑몰 기능을 제공하기 때문에 기본적으로 달력 옵션을 지원하지 않는 문제가 발생했습니다.',
-        solve:
-          '연/월/일을 각각 나누어 옵션으로 설정해 날짜를 선택할 수 있도록 구현했습니다. 그러나 카페24의 옵션 구조상, 품절 처리를 하지 않는 한 사용자가 선택하지 못하도록 하는 기능을 지원하지 않았습니다. 이를 보완하기 위해 사용자가 날짜를 선택한 후, 이미 지난 날짜의 상품을 추가하려 할 경우, "지난 날짜의 상품은 구매할 수 없다"는 alert 메시지를 띄워 문제를 해결했습니다.',
-      },
-    ],
-    demoLink: 'https://groundseesaw.co.kr/',
-  },
-  {
-    id: 6,
     title: '워클로',
     tag: 'Web Publishing',
     thumbnail: '/icons/worclo.svg',
     skills: ['HTML', 'CSS', 'JavaScript'],
     summary: [
-      '카페24 플랫폼 기반 반응형 쇼핑몰 메인 페이지 제외 퍼블리싱 작업 담당',
+      'JavaScript를 활용한 iframe 접근 및 게시판 입력 양식 동적 설정',
+      ' click 이벤트로 동적 대표 이미지 변경 구현',
     ],
     headCount: 2,
     duration: '2023.05 ~ 2023.06',
     role: [
+      {
+        title: '게시판 iframe 입력 양식 설정 문제',
+        trouble:
+          '게시판 페이지에서 카테고리에 따라 적합한 입력 양식을 제공해야 했지만, 카페24에서는 공통 입력 양식만 설정 가능하고 카테고리별로 개별 설정할 수 없었습니다.',
+        solve:
+          'JavaScript를 활용하여 게시판의 카테고리를 추출한 뒤, 사용자가 카테고리를 변경할 때마다 적합한 입력 양식이 동적으로 변경되도록 구현했습니다. 이를 위해 카테고리별 목업 데이터를 정의하고, iframe 내부에 접근하여 입력 양식을 자동 변환하는 기능을 추가했습니다.',
+      },
       {
         title: '상품 이미지 Swiper 미리보기 문제 해결',
         trouble:
@@ -210,5 +221,9 @@ const PROJECTS: IProjectItem[] = [
 ];
 
 export const PROJECT_TOTAL_COUNT = PROJECTS.length;
+
+PROJECTS.forEach((item, index) => {
+  item.id = index + 1;
+});
 
 export default PROJECTS;
