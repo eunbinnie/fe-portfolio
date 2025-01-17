@@ -14,7 +14,7 @@ const PROJECTS: IProjectItem[] = [
       'Tailwind CSS',
     ],
     summary: [
-      'React Query의 SSR prefetching을 활용해 초기 로딩 성능을 개선하고, LCP를 4.5초에서 1.0초로 단축',
+      'React Query의 SSR prefetching을 활용해 초기 로딩 성능을 개선하고, CLS를 0.617초에서 58% 단축',
       'ReactQuill의 SSR 미지원 문제를 dynamic import로 해결하고, UI 전환의 일관성을 확보',
       '마크다운 에디터와 이미지 DnD, 우편번호 API 연동을 통해 체험 등록/수정 페이지 구현',
       '내 정보 수정 시 데이터 유효성 검사와 쿠키 만료 처리로 보안 강화',
@@ -27,9 +27,9 @@ const PROJECTS: IProjectItem[] = [
       {
         title: '초기 데이터 로딩 지연 이슈',
         trouble:
-          '체험 등록 및 예약 내역 페이지에서 초기 데이터 로딩이 2~3초 지연되며, LCP가 4.5초로 측정되어 사용자 경험이 저하되었습니다.',
+          '체험 등록 및 예약 내역 페이지에서 초기 데이터 로딩이 지연되며, CLS가 0.617초로 측정되어 사용자 경험이 저하되었습니다.',
         solve:
-          'React Query의 SSR prefetching을 도입해 초기 데이터를 서버에서 미리 가져오는 방식으로 로딩 시간을 단축했습니다. 이를 통해 초기 LCP를 1.0초로 줄이며 성능을 개선했습니다. 또한, 사용자의 행동에 따라 필요한 데이터를 즉시 업데이트할 수 있도록 invalidate 기능을 활용해 데이터 최신성을 유지하며 사용자 경험을 향상시켰습니다.',
+          'React Query의 SSR prefetching을 도입해 초기 데이터를 서버에서 미리 가져오는 방식으로 로딩 시간을 단축했습니다. 이를 통해 초기 CLS를 58% 단축하며 성능을 개선했습니다. 또한, 사용자의 행동에 따라 필요한 데이터를 즉시 업데이트할 수 있도록 invalidate 기능을 활용해 데이터 최신성을 유지하며 사용자 경험을 향상시켰습니다.',
       },
       {
         title: 'React-Quill SSR 미지원 이슈',
