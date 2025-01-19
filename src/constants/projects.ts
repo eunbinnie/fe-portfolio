@@ -74,15 +74,22 @@ const PROJECTS: IProjectItem[] = [
     thumbnail: '/icons/wekitbucket.svg',
     skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'Tailwind CSS'],
     summary: [
+      '이미지 포맷 최적화 및 에러 검증 방식 단순화하여 LCP 평균 72% 단축',
       'SSR 전환 시 발생한 hydration 오류를 시간 불일치 문제로 진단하고, 커스텀 훅으로 시간을 통일해 렌더링 속도 개선',
       'useSearchParams로 새로고침 시 상태 유지 구현',
       'marked 라이브러리를 활용한 마크다운 파싱 및 상세 페이지 렌더링',
       'React.forwardRef()를 사용해 register 전달 오류를 해결 및 재사용 가능한 입력 컴포넌트를 구현',
-      '로그인 페이지 퍼블리싱 및 API 결과 기반 화면 구현',
     ],
     headCount: 5,
     duration: '2024.06.21 ~ 2024.07.19',
     role: [
+      {
+        title: '자유게시판 LCP 성능 저하',
+        trouble:
+          '자유게시판에서 LCP가 평균 6.9초로 측정되며 성능 저하가 발생했습니다.',
+        solve:
+          '이미지 에러 처리 시 커스텀 훅을 사용해 이미지를 재호출하면서, 네트워크 요청이 두 번 발생한 것이 주요 원인이었습니다. 이미지 포맷을 AVIF, WebP로 변경해 최적화하고, 기존의 커스텀 훅을 사용한 이미지 에러 처리 방식을 Image 태그의 onError 속성으로 단순화했습니다. 이를 통해 LCP가 평균 1.9초로 단축되어 약 72%의 성능 개선을 달성했습니다.',
+      },
       {
         title: '자유게시판 SSR 문제',
         trouble:

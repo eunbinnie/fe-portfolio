@@ -10,6 +10,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { db } from '@/lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import getLocationInfo from '@/utils/getLocationInfo';
 
 interface ChatData {
   system: string;
@@ -48,8 +49,10 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
     try {
       const res = (await axios.post('/api/chat', { question: value })).data
         .choices[0].message.content;
+      const location = await getLocationInfo();
       setSystemChat(res);
       await addDoc(collection(db, 'portfolio'), {
+        location: location,
         date: new Date(),
         user: value,
         system: res,
