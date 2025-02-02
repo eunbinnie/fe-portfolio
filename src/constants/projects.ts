@@ -9,9 +9,9 @@ const PROJECTS: IProjectItem[] = [
       'Next.js',
       'React',
       'TypeScript',
-      'TanStack Query',
+      'React Query',
       'Axios',
-      'Tailwind CSS',
+      'TailwindCSS',
     ],
     summary: [
       'React Query의 SSR prefetching을 활용해 초기 로딩 성능을 개선하고, CLS를 0.617초에서 58% 단축',
@@ -65,14 +65,14 @@ const PROJECTS: IProjectItem[] = [
           '내 정보 수정 페이지에 진입할 때 비밀번호 재확인 절차를 추가하여 보안을 강화했습니다. 로그인 API를 활용해 사용자에게 프로필 사진과 이메일만 표시하고, 비밀번호를 재입력하도록 요구했습니다. 비밀번호가 일치하면 쿠키에 authConfirm 키를 저장하고, 정보 수정 폼을 렌더링하도록 구현했습니다. 또한, 페이지를 벗어날 경우 해당 쿠키를 만료시켜 재진입 시 다시 비밀번호 확인 절차를 거치도록 했습니다.',
       },
     ],
-    githubLink: 'https://github.com/part4-team9/global-nomad',
-    demoLink: 'https://sp-globalnomad-6-9.vercel.app/',
+    githubLink: 'https://github.com/eunbinnie/global-nomad',
+    demoLink: 'https://global-nomad-ruddy.vercel.app/activity/register',
   },
   {
     title: 'WekitBucket',
     tag: 'Frontend Development',
     thumbnail: '/icons/wekitbucket.svg',
-    skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'Tailwind CSS'],
+    skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'TailwindCSS'],
     summary: [
       '이미지 포맷 최적화 및 에러 검증 방식 단순화하여 LCP 평균 72% 단축',
       'SSR 전환 시 발생한 hydration 오류를 시간 불일치 문제로 진단하고, 커스텀 훅으로 시간을 통일해 렌더링 속도 개선',
@@ -119,29 +119,43 @@ const PROJECTS: IProjectItem[] = [
     title: 'Fandom-K',
     tag: 'Frontend Development',
     thumbnail: '/icons/fandomK.svg',
-    skills: ['React', 'JavaScript', 'Fetch API', 'styled-components'],
+    skills: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'axios',
+      'React Query',
+      'Zustand',
+      'TailwindCSS',
+    ],
     summary: [
-      '마이페이지 퍼블리싱 및 전체 기능 구현 담당',
+      '기존 마이페이지 담당 및 사이트 전체 마이그레이션 및 리팩토링',
       'Swiper를 이용해 아이돌 리스트 슬라이드 변경 시마다 필요한 데이터만 호출, 대량의 데이터에서도 성능 최적화',
-      '슬라이드 이동과 데이터 로드를 분리해 즉시 전환과 스켈레톤 UI로 딜레이 최소화',
       'localStorage를 활용한 관심 아이돌 추가/삭제 기능 구현, 사이트 재방문 시에도 관심 아이돌 정보 유지',
     ],
-    headCount: 5,
-    duration: '2024.04.30 ~ 2024.05.17',
+    headCount: 1,
+    duration: '2024.01.28 ~ 진행 중',
     role: [
+      {
+        title: 'React 환경에서 과도한 이미지 네트워크 요청 문제',
+        trouble:
+          '기존 React 프로젝트에서 이미지 최적화가 이루어지지 않아 로딩 시간이 지연되었습니다. 특히, 마이페이지의 Swiper에서 고해상도 이미지를 로드하는 과정에서 슬라이드 전환이 버벅이며 지연이 발생하는 문제가 있었습니다.',
+        solve:
+          'Next.js로 마이그레이션하면서 next/image를 활용해 이미지 최적화를 적용했습니다. 이를 통해 이미지가 자동으로 WebP로 변환되었고, 네트워크 리소스 사용량을 기존 51.5MB → 5.6MB(약 90% 절감)로 크게 줄였습니다. 그 결과, 슬라이드 전환 속도가 개선되었으며 버벅이는 현상이 해결되었습니다.',
+      },
+      {
+        title: 'useState와 fetch만으로 인한 상태 및 로직 복잡도 증가',
+        trouble:
+          '기존 React 프로젝트에서는 useState와 fetch만을 사용하여 상태를 관리하다 보니 불필요한 상태와 함수가 많아 가독성이 저하되었습니다. 또한, localStorage에 값을 저장하고 가져오는 로직이 과도하게 많아 유지보수가 어려웠습니다.',
+        solve:
+          'API 호출 로직을 단순화하기 위해 React Query의 infinite queries를 도입하여 불필요한 다음 슬라이드 호출 로직을 제거하고 유지보수성을 개선했습니다. 또한, 상태 관리를 위해 Zustand를 적용하여 단일 store에서 모든 로직을 관리하고 불필요한 상태와 함수를 줄였습니다. 추가로, Persist 미들웨어를 활용해 store와 localStorage를 연동하여 중복된 localStorage 접근 로직을 제거했습니다. 그 결과, 상태 관리 코드의 LOC(Line of Code)를 약 30% 감소시켜 로직 복잡성을 줄이고 가독성을 향상시켰습니다.',
+      },
       {
         title: 'Swiper를 통해 API 데이터 동적 로딩 문제',
         trouble:
           '아이돌 리스트를 슬라이드 형식으로 구현해야 하는 요구사항이 있었습니다. 초기 데이터는 정상적으로 렌더링되었지만, 슬라이드 이동 또는 다음 버튼 클릭 시 새로운 데이터를 동적으로 가져와야 하는 문제가 발생했습니다.',
         solve:
           '모든 데이터를 한 번에 불러오면 불필요한 데이터를 로드하게 되므로, swiper의 기능을 활용하여 문제를 해결했습니다. swiper의 onSlideChange 옵션을 사용해 슬라이드가 변경될 때마다 필요한 데이터를 API로부터 가져오도록 수정했습니다. 좌우 이동 버튼도 swiper의 navigation 옵션과 연결해 슬라이드 변경 시 데이터 로딩을 트리거하도록 구현했습니다.',
-      },
-      {
-        title: 'Next 슬라이드 이동 시 딜레이 문제',
-        trouble:
-          'Next 버튼을 클릭했을 때 슬라이드가 바로 넘어가지 않고, 여러 번 클릭해야 슬라이드가 이동하며 데이터를 가져오는 과정에서 반응이 느려지는 문제가 발생했습니다.',
-        solve:
-          '스켈레톤 UI를 추가하여 문제를 해결했습니다. 문제의 원인은 데이터를 가져오는 동안 pending 상태에서 발생하는 딜레이였습니다. 이를 해결하기 위해, Next 버튼이나 슬라이드 이동 시 데이터를 가져오는 중에도 슬라이드가 즉시 넘어가도록 처리하고, 데이터가 로딩 중일 때는 스켈레톤 UI를 표시하여 사용자에게 즉각적인 피드백을 제공했습니다.',
       },
       {
         title: '반응형 디자인에 따른 아이템 개수 변경 문제',
@@ -151,8 +165,8 @@ const PROJECTS: IProjectItem[] = [
           '1차원 배열로 데이터를 평탄화한 후, 반응형 조건에 맞춰 다시 2차원 배열로 변환하는 방식으로 문제를 해결했습니다. 먼저 배열을 평탄화한 후, 현재 화면에 렌더링되어야 하는 아이템의 개수에 맞춰 페이지를 계산하고, 데이터를 페이지별로 다시 나누어 렌더링했습니다. 이를 통해 반응형 디자인에서도 아이템 개수가 유동적으로 변하도록 구현했습니다.',
       },
     ],
-    githubLink: 'https://github.com/Sprint6-Fandom-K/Fandom-K',
-    demoLink: 'https://sprint11fandom-k.netlify.app/',
+    githubLink: 'https://github.com/eunbinnie/fandom-k-service',
+    demoLink: 'https://fandom-k-service.vercel.app/mypage',
   },
   {
     title: '그라운드시소',
