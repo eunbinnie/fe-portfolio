@@ -2,7 +2,7 @@
 
 import Lottie from 'react-lottie-player';
 import lottieJson from 'public/lotties/404.json';
-import Button from '@/components/Button';
+import Button from '@/components/button/Button';
 import { useRouter } from 'next/navigation';
 
 const NotFoundPage = () => {

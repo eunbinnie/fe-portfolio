@@ -36,10 +36,11 @@ const config: Config = {
         'infinite-slide-original':
           'infinite-slide-original 70s linear infinite',
         'infinite-slide-copy': 'infinite-slide-copy 70s linear infinite',
-        'fade-in': 'fade-in 0.25s ease-in-out',
-        'fade-out': 'fade-out 0.25s ease-in-out',
-        'slide-in-right': 'slide-in-right 0.25s ease-in',
-        'slide-out-right': 'slide-out-right 0.25s ease-in',
+        'fade-in': 'fade-in 0.25s ease-in-out forwards',
+        'fade-in-slow': 'fade-in 3s ease-out 2s forwards',
+        'fade-out': 'fade-out 0.25s ease-in-out forwards',
+        'slide-in-right': 'slide-in-right 0.25s ease-in forwards',
+        'slide-out-right': 'slide-out-right 0.25s ease-in forwards',
       },
       keyframes: {
         'infinite-slide-original': {

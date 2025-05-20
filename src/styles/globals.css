@@ -50,6 +50,31 @@
     border-radius: 10px;
   }
 
+  /* 말풍선 */
+  .speech-bubble {
+    position: relative;
+    background: #2a2a2b;
+    color: #fff;
+    border-radius: 24px;
+    margin-bottom: 12px;
+    padding: 8px 16px;
+  }
+
+  .speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: #2a2a2b;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -3.5px;
+    margin-bottom: -6px;
+  }
+
   @media (max-width: 424px) {
     .metalic-text {
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import Background from '@/components/StarContainer';
-import FloatingButton from '@/components/FloatingButton';
+import FloatingButton from '@/components/button/FloatingButton';
 import localFont from 'next/font/local';
 
 const pretendard = localFont({

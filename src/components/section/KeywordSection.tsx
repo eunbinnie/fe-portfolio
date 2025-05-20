@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/Button';
+import Button from '@/components/button/Button';
 import KEYWORD from '@/constants/keyword';
 import cn from '@/utils/cn';
 import { useState } from 'react';

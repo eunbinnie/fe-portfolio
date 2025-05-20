@@ -41,11 +41,11 @@ const Portal = ({ active, children, onClose }: IModalProps) => {
     <>
       {visible &&
         createPortal(
-          <div className="inset-0 z-[9999]">
+          <div className="inset-0">
             <div
               onClick={onClose}
               className={cn(
-                'fill-mode-forwards fixed inset-0 bg-black bg-opacity-[0.7]',
+                'fill-mode-forwards fixed inset-0 z-[1] bg-black bg-opacity-[0.7]',
                 active ? 'animate-fade-in' : 'animate-fade-out',
               )}
             />
