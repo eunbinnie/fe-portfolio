@@ -23,12 +23,12 @@ const FloatingButton = () => {
         className="relative size-14 cursor-pointer rounded-full bg-silver shadow-small transition-colors duration-300 ease-in-out hover:bg-white md:size-16"
       >
         <Image
-          src="/icons/chatgpt.svg"
+          src="/icons/buttonProfile.png"
           alt="AI와 채팅하기"
           fill
           sizes="max-width:100%"
           priority
-          className="object-cover p-4"
+          className="object-cover p-2"
         />
       </button>
       <Portal active={isActive} onClose={handleModalActive}>
