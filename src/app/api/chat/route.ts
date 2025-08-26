@@ -17,8 +17,8 @@ export async function POST(req: Request) {
         content: question,
       },
     ],
-    model: 'gpt-4o-mini',
-    max_tokens: 300,
+    model: 'gpt-4o',
+    max_completion_tokens: 300,
   });
   return new Response(JSON.stringify(response));
 }
