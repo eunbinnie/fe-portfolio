@@ -134,7 +134,7 @@ const PROJECTS: IProjectItem[] = [
       'localStorage를 활용한 관심 아이돌 추가/삭제 기능 구현, 사이트 재방문 시에도 관심 아이돌 정보 유지',
     ],
     headCount: 1,
-    duration: '2024.01.28 ~ 진행 중',
+    duration: '2025.01.28 ~ 2025.07.02',
     role: [
       {
         title: 'React 환경에서 과도한 이미지 네트워크 요청 문제',
@@ -167,6 +167,30 @@ const PROJECTS: IProjectItem[] = [
     ],
     githubLink: 'https://github.com/eunbinnie/fandom-k-service',
     demoLink: 'https://fandom-k-service.vercel.app/mypage',
+  },
+  {
+    title: 'board-app',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/boardApp.svg',
+    skills: ['Supabase', 'React', 'TypeScript', 'TailwindCSS'],
+    summary: [
+      'Supabase Auth로 회원가입/로그인 및 인증 흐름 구현, 비로그인 시 접근 제한 로직 적용',
+      '게시글 목록/상세/작성/삭제 기능을 Supabase DB와 연동하여 구현',
+      '작성자 UUID와 로그인 유저 UUID를 비교해 본인만 삭제 가능한 권한 제어',
+    ],
+    headCount: 1,
+    duration: '2025.03.26 ~ 2025.04.09',
+    role: [
+      {
+        title: '게시글 정렬 기준 변경 시 목록이 갱신되지 않는 문제',
+        trouble:
+          'useGetPostsQuery({ keyword, sort })를 사용했지만, 정렬 기준이 변경되어도 React Query가 데이터를 다시 불러오지 않아, 화면에 이전 정렬 데이터가 그대로 남는 문제가 발생했습니다.',
+        solve:
+          'React Query의 refetchOnMountOrArgChange: true 옵션을 추가해 정렬 기준이 바뀔 때마다 자동으로 데이터를 다시 요청하도록 설정했습니다. 이 옵션을 명시함으로써 인자 변경 시 React Query가 리패치하도록 동작을 보장했습니다.',
+      },
+    ],
+    githubLink: 'https://github.com/eunbinnie/react-board-app',
+    demoLink: 'https://react-board-app.vercel.app/',
   },
   {
     title: '그라운드시소',

@@ -1,6 +1,6 @@
 const CAREER_HISTORY = [
   {
-    period: '2025.02 - 2024.03',
+    period: '2025.02 - 2025.03',
     title: '아웃스탠더스 프론트엔드 체험형 인턴',
   },
   {
