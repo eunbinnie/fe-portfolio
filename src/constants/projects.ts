@@ -2,17 +2,55 @@ import { IProjectItem } from '@/types/project.types';
 
 const PROJECTS: IProjectItem[] = [
   {
+    title: '해핑고 (Happingo)',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/happingo.svg',
+    skills: [
+      'Next.js',
+      'TypeScript',
+      'Zustand',
+      'Tailwind CSS',
+      'shadcn/ui',
+      'Driver.js',
+    ],
+    summary: [
+      '로컬 저장 구조를 localStorage에서 IndexedDB로 분리해 용량 한계로 인한 저장 실패 해결',
+      '업로드 이미지를 리사이즈·WebP로 최적화해 저장 용량 97.7% 절감 (39.3MB → 0.89MB)',
+      'DOM 캡처 다운로드 기능 구현, 폰트 로딩 대기·프레임 동기화로 결과 품질 개선',
+      'Driver.js 온보딩 투어 및 다크/라이트 모드 적용',
+    ],
+    headCount: 1,
+    duration: '2025.11.23 ~ 2026.01.02',
+    role: [
+      {
+        title: '로컬 저장소 용량 초과로 인한 빙고 데이터 저장 실패',
+        trouble:
+          '사진 기록 특성상 서버 저장을 피하고 브라우저 저장소 기반으로 설계했지만, 빙고 데이터를 localStorage에 저장할 때 이미지가 누적되면서 저장 용량 한계를 초과해 기록 저장이 실패하는 문제가 발생했습니다.',
+        solve:
+          '개인정보·보안 이슈를 고려해 "서버 업로드 없이 클라이언트 저장" 방향은 유지하되, 저장소를 localStorage에서 IndexedDB로 전환했습니다. Zustand persist의 storage를 커스텀 IndexedDB 스토리지로 교체해 동일한 데이터 구조를 그대로 저장하면서도 용량 한계로 인한 저장 실패를 해소하고, 월간 기록이 안정적으로 유지되도록 개선했습니다.',
+      },
+      {
+        title: '이미지 용량 과다로 인한 렌더링 지연 및 저장 공간 낭비',
+        trouble:
+          '원본 이미지를 그대로 저장하면서 IndexedDB 용량이 빠르게 증가했고, 이미지 로딩과 화면 반영 과정에서 버벅임이 발생해 체감 성능이 떨어졌습니다.',
+        solve:
+          '업로드 시점에 Canvas 기반 리사이즈와 압축을 적용하고, WebP 지원 여부를 확인해 가능한 경우 WebP로 저장하도록 최적화했습니다. 그 결과 IndexedDB 저장 용량을 39.3MB에서 0.89MB로 줄여 약 97.7% 절감했으며, 이미지 누적에 따른 저장 부담을 크게 낮췄습니다.',
+      },
+      {
+        title: '다운로드 캡처 품질 저하 및 결과물 일관성 이슈 대비',
+        trouble:
+          'DOM 캡처 기반 다운로드는 실행 시점의 렌더 상태에 영향을 받기 때문에, 네트워크/기기 성능에 따라 폰트 로딩이 늦거나 렌더링이 완전히 끝나기 전에 캡처되면 텍스트 깨짐·레이아웃 오차가 발생할 수 있습니다. 또한 기본 캡처 해상도는 공유용 결과물로는 선명도가 부족할 수 있습니다.',
+        solve:
+          '캡처 전에 폰트 로딩 완료를 대기하고 requestAnimationFrame으로 렌더링 프레임을 동기화해, 렌더가 안정된 상태에서 캡처되도록 선제 대응했습니다. 추가로 고해상도(scale 2) 저장을 적용해 결과물 선명도를 확보하고, 환경에 따른 캡처 결과 편차를 줄였습니다.',
+      },
+    ],
+    demoLink: 'https://happingo.app/',
+  },
+  {
     title: 'GlobalNomad',
     tag: 'Frontend Development',
     thumbnail: '/icons/globalNomad.svg',
-    skills: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'React Query',
-      'Axios',
-      'TailwindCSS',
-    ],
+    skills: ['Next.js', 'TypeScript', 'React Query', 'Axios', 'Tailwind CSS'],
     summary: [
       'ReactQuill의 SSR 미지원 문제를 dynamic import로 해결하고, UI 전환의 일관성을 확보',
       '마크다운 에디터와 이미지 DnD, 우편번호 API 연동을 통해 체험 등록/수정 페이지 구현',
@@ -64,7 +102,7 @@ const PROJECTS: IProjectItem[] = [
     title: 'WekitBucket',
     tag: 'Frontend Development',
     thumbnail: '/icons/wekitbucket.svg',
-    skills: ['Next.js', 'React', 'TypeScript', 'Fetch API', 'TailwindCSS'],
+    skills: ['Next.js', 'TypeScript', 'Fetch API', 'Tailwind CSS'],
     summary: [
       '이미지 포맷 최적화 및 에러 검증 방식 단순화하여 LCP 평균 72% 단축',
       'SSR 전환 시 발생한 hydration 오류를 시간 불일치 문제로 진단하고, 커스텀 훅으로 시간을 통일해 렌더링 속도 개선',
@@ -113,12 +151,11 @@ const PROJECTS: IProjectItem[] = [
     thumbnail: '/icons/fandomK.svg',
     skills: [
       'Next.js',
-      'React',
       'TypeScript',
       'axios',
       'React Query',
       'Zustand',
-      'TailwindCSS',
+      'Tailwind CSS',
     ],
     summary: [
       '기존 마이페이지 담당 및 사이트 전체 마이그레이션 및 리팩토링',
@@ -164,7 +201,7 @@ const PROJECTS: IProjectItem[] = [
     title: 'board-app',
     tag: 'Frontend Development',
     thumbnail: '/icons/boardApp.svg',
-    skills: ['Supabase', 'React', 'TypeScript', 'TailwindCSS'],
+    skills: ['Supabase', 'React', 'TypeScript', 'Tailwind CSS'],
     summary: [
       'Supabase Auth로 회원가입/로그인 및 인증 흐름 구현, 비로그인 시 접근 제한 로직 적용',
       '게시글 목록/상세/작성/삭제 기능을 Supabase DB와 연동하여 구현',
