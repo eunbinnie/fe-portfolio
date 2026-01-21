@@ -6,23 +6,13 @@ export interface Skills {
 
 const SKILLS: Skills[] = [
   {
-    src: '/icons/html.svg',
-    title: 'HTML',
-    level: 95,
-  },
-  {
-    src: '/icons/css.svg',
-    title: 'CSS',
+    src: '/icons/typescript.svg',
+    title: 'TypeScript',
     level: 80,
   },
   {
     src: '/icons/javascript.svg',
     title: 'JavaScript',
-    level: 80,
-  },
-  {
-    src: '/icons/typescript.svg',
-    title: 'TypeScript',
     level: 80,
   },
   {
@@ -36,9 +26,24 @@ const SKILLS: Skills[] = [
     level: 70,
   },
   {
-    src: '/icons/styledComponents.png',
-    title: 'styled-components',
-    level: 78,
+    src: '/icons/tanstackQuery.png',
+    title: 'React Query',
+    level: 65,
+  },
+  {
+    src: '/icons/zustand.svg',
+    title: 'Zustand',
+    level: 70,
+  },
+  {
+    src: '/icons/html.svg',
+    title: 'HTML',
+    level: 95,
+  },
+  {
+    src: '/icons/css.svg',
+    title: 'CSS',
+    level: 80,
   },
   {
     src: '/icons/tailwindcss.svg',
@@ -46,14 +51,9 @@ const SKILLS: Skills[] = [
     level: 85,
   },
   {
-    src: '/icons/tanstackQuery.png',
-    title: 'React Query',
-    level: 55,
-  },
-  {
-    src: '/icons/zustand.svg',
-    title: 'Zustand',
-    level: 55,
+    src: '/icons/styledComponents.png',
+    title: 'styled-components',
+    level: 78,
   },
 ];
 

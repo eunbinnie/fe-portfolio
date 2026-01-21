@@ -2,6 +2,50 @@ import { IProjectItem } from '@/types/project.types';
 
 const PROJECTS: IProjectItem[] = [
   {
+    title: '오늘의 날씨',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/oneulWeather.svg',
+    skills: [
+      'React',
+      'TypeScript',
+      'React Query',
+      'Zustand',
+      'Tailwind CSS',
+      'shadcn/ui',
+    ],
+    summary: [
+      '20,555개 지역 검색 시 사용자 입력 최대 7초 지연, react-virtual 가상화로 즉시 반응하도록 개선',
+      '즐겨찾기 최대 24개 API 동시 호출 시 429 에러 발생, 지연 순차 호출 및 React Query Persist 60분 캐싱으로 에러 해결',
+      '국토교통부·기상청 공공데이터 매칭으로 20,555개 검색 데이터 직접 구축, 좌표 미제공 지역 폴백 처리',
+    ],
+    headCount: 1,
+    duration: '2026.01.08 ~ 2026.01.19',
+    role: [
+      {
+        title: '20,555개 옵션 렌더링으로 사용자 입력 최대 7초 지연 발생',
+        trouble:
+          '20,555개 지역 옵션을 일반 렌더링 시 DOM 노드 과다 생성으로 메인 스레드가 블로킹되어 사용자 입력 이벤트가 최대 7초 지연되었습니다. Chrome DevTools Console에서 "pointerdown handler took 7239ms", "input handler took 310ms" 등의 Violation 경고가 발생했습니다.',
+        solve:
+          'TanStack Virtual로 가상 스크롤을 구현하여 한국 지역 데이터 20,555개 중 뷰포트 내 가시 영역과 overscan 영역만 렌더링하도록 최적화했습니다. 이를 통해 DOM 노드를 20,555개에서 약 20개로 대폭 줄여 사용자 입력에 즉시 반응하도록 개선했고, 대량의 리스트 렌더링으로 인한 성능 문제를 해결했습니다.',
+      },
+      {
+        title: '즐겨찾기 최대 24개 API 동시 호출로 429 에러 발생',
+        trouble:
+          '사용자가 즐겨찾기에 여러 지역을 등록한 경우, 페이지 로드 시 최대 24개의 날씨 API를 동시에 호출하면서 Rate Limit(429 Too Many Requests) 에러가 발생했습니다. 이로 인해 일부 지역의 날씨 정보가 표시되지 않는 문제가 있었습니다.',
+        solve:
+          'API 호출을 300ms 간격으로 지연 순차 호출하도록 변경하고, React Query Persist를 활용해 60분간 데이터를 캐싱했습니다. 이를 통해 Rate Limit 에러를 방지하고, 사용자가 페이지를 재방문할 때 불필요한 API 호출을 줄여 서버 부하를 감소시켰습니다.',
+      },
+      {
+        title: '공공데이터 매칭하여 20,555개 검색 데이터 구축',
+        trouble:
+          '기상청 단기예보 API는 격자좌표(X, Y) 기반으로 동작하지만, 국토교통부 법정동 코드에는 격자좌표 정보가 없어 두 데이터를 직접 연결할 방법이 없었습니다. 또한 일부 지역(읍, 면 단위)은 기상청에서 격자좌표를 제공하지 않아 데이터 매칭이 필요했습니다.',
+        solve:
+          '국토교통부 법정동 코드 전체를 기상청 격자좌표와 매칭하여 20,555개의 검색용 데이터를 생성했습니다. 격자좌표가 없는 지역은 상위 행정구역(시, 군)의 좌표로 폴백 처리하여 모든 지역에서 날씨 정보를 조회할 수 있도록 구현했습니다.',
+      },
+    ],
+    demoLink: 'https://oneul-weather.vercel.app/',
+  },
+  {
     title: '해핑고 (Happingo)',
     tag: 'Frontend Development',
     thumbnail: '/icons/happingo.svg',

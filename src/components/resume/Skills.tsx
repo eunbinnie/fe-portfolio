@@ -20,7 +20,7 @@ const Skills = () => {
             />
           </figure>
           <span className="text-xs text-white">{skill.title}</span>
-          <div className="h-2 w-full rounded-2xl bg-gray-150">
+          {/* <div className="h-2 w-full rounded-2xl bg-gray-150">
             <motion.div
               className="h-full rounded-2xl bg-white-silver-gradient"
               initial={{ width: 0 }}
@@ -31,7 +31,7 @@ const Skills = () => {
               }}
               viewport={{ once: true }}
             />
-          </div>
+          </div> */}
         </li>
       ))}
     </ul>
