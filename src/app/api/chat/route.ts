@@ -81,11 +81,22 @@ export async function POST(req: Request) {
     ...history,
   ];
 
-  const response = await getOpenAI().chat.completions.create({
-    messages: chatMessages,
-    model: 'gpt-4o',
-    max_completion_tokens: 300,
-  });
+  try {
+    const response = await getOpenAI().chat.completions.create({
+      messages: chatMessages,
+      model: 'gpt-4o',
+      max_completion_tokens: 300,
+    });
 
-  return Response.json(response);
+    return Response.json(response);
+  } catch (error) {
+    // 응답 본문이 비어 있으면 원인을 알 수 없으므로 상태 코드와 메시지를 함께 반환합니다.
+    const status = error instanceof OpenAI.APIError ? error.status : 500;
+    const message =
+      error instanceof Error ? error.message : '알 수 없는 오류입니다.';
+
+    console.error('OpenAI 요청 실패:', status, message);
+
+    return Response.json({ error: message }, { status: status ?? 500 });
+  }
 }
