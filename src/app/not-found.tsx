@@ -1,9 +1,11 @@
 'use client';
 
-import Lottie from 'react-lottie-player';
 import lottieJson from 'public/lotties/404.json';
 import Button from '@/components/button/Button';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
+
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
 
 const NotFoundPage = () => {
   const router = useRouter();

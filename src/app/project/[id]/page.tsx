@@ -1,37 +1,21 @@
-'use client';
-
-import ProjectInfo from '@/components/project/ProjectInfo';
-import WorkDetails from '@/components/project/WorkDetails';
-import PROJECTS, { PROJECT_TOTAL_COUNT } from '@/constants/projects';
-import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import cn from '@/utils/cn';
+import PROJECTS from '@/constants/projects';
 import { notFound } from 'next/navigation';
-import { useRef } from 'react';
 
-const ProjectPage = ({ params }: { params: { id: number } }) => {
-  const id = Number(params.id);
-  const data = PROJECTS.filter((project) => project.id === id)[0];
-  const ref = useRef<HTMLDivElement>(null);
-  const { animated } = useIntersectionObserver(ref, { threshold: 0 });
+import ProjectDetail from './ProjectDetail';
 
-  if (id > PROJECT_TOTAL_COUNT || id === 0) {
+export const dynamicParams = false;
+
+export const generateStaticParams = () =>
+  PROJECTS.map((project) => ({ id: String(project.id) }));
+
+const ProjectPage = ({ params }: { params: { id: string } }) => {
+  const data = PROJECTS.find((project) => project.id === Number(params.id));
+
+  if (!data) {
     notFound();
   }
 
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        'max-container grid gap-20 pb-[100px] transition-[opacity,transform] duration-[3000ms]',
-        animated
-          ? 'translate-y-0 opacity-100'
-          : 'translate-y-4 opacity-0 md:translate-y-5',
-      )}
-    >
-      <ProjectInfo data={data} />
-      {data.role && <WorkDetails data={data.role} />}
-    </div>
-  );
+  return <ProjectDetail data={data} />;
 };
 
 export default ProjectPage;

@@ -27,7 +27,7 @@ const SKILLS: Skills[] = [
   },
   {
     src: '/icons/tanstackQuery.png',
-    title: 'React Query',
+    title: 'TanStack Query',
     level: 65,
   },
   {
@@ -51,8 +51,8 @@ const SKILLS: Skills[] = [
     level: 85,
   },
   {
-    src: '/icons/styledComponents.png',
-    title: 'styled-components',
+    src: '/icons/storybook.svg',
+    title: 'Storybook',
     level: 78,
   },
 ];
