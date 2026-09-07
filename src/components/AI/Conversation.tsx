@@ -1,8 +1,10 @@
 'use client';
 
-import Lottie from 'react-lottie-player';
 import cn from '@/utils/cn';
+import dynamic from 'next/dynamic';
 import loadingJson from 'public/lotties/loading.json';
+
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
 
 interface ConversationProps {
   message: string;
