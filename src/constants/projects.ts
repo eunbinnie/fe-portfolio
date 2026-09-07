@@ -2,6 +2,77 @@ import { IProjectItem } from '@/types/project.types';
 
 const PROJECTS: IProjectItem[] = [
   {
+    title: 'dentOne 홈페이지',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/dentOne.png',
+    skills: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Storybook'],
+    summary: [
+      'WordPress 기반 홈페이지를 Next.js·TypeScript로 마이그레이션하고 프론트엔드 개발 전담',
+      'MDX 이미지 크기를 자동으로 수집·주입해 매뉴얼 페이지 CLS 중앙값을 3.71에서 0.0001로 개선',
+      '뷰포트 근접 시점에 배경 영상 URL을 주입해 초기 영상 전송량을 6.2MB에서 1.4MB로 78% 감소',
+    ],
+    headCount: 3,
+    teamComposition: '프론트엔드 1 · 백엔드 1 · 디자이너 1',
+    duration: '2026.08 ~ 2026.09',
+    role: [
+      {
+        title: 'MDX 이미지 크기 자동 수집·주입으로 CLS 개선',
+        trouble:
+          'CDN URL로 참조하는 매뉴얼 이미지의 크기가 지정되지 않아, 이미지가 로드된 후 본문이 밀리며 사용자가 읽던 위치가 바뀌는 문제가 발생했습니다. 이미지 68개 중 66개에 width 속성이 없는 페이지를 네트워크 스로틀링 조건에서 측정한 결과, 표준 CLS 중앙값이 3.71로 나타났습니다.',
+        solve:
+          'MDX 콘텐츠 114편과 원격 이미지 437장의 크기를 수작업으로 관리하면 누락 위험이 있고, 빌드마다 전체 이미지를 내려받으면 시간과 네트워크 부담이 커진다고 판단했습니다. 이에 이미지 크기를 JSON으로 캐싱하고, MDX를 스캔해 캐시에 없는 이미지만 CDN에서 내려받아 크기를 수집하도록 구현했습니다. 렌더링 시 width와 height를 주입해 이미지 영역을 미리 확보하고, 수집 스크립트를 npm lifecycle의 predev와 prebuild에 연결했습니다. 동일한 측정 조건에서 표준 CLS 중앙값을 3.71에서 0.0001로 개선했습니다.',
+      },
+      {
+        title: '배경 영상 지연 로딩으로 초기 전송량 감소',
+        trouble:
+          '배경 영상 14개가 배치된 긴 랜딩 페이지에서 Chrome DevTools Network를 확인하던 중, 사용자가 스크롤하지 않아도 하단 영상까지 초기 진입 시 요청되는 현상을 발견했습니다. 아직 보지 않은 영역의 영상까지 다운로드되어 불필요한 초기 데이터 전송이 발생했습니다.',
+        solve:
+          'preload="none"만으로는 자동 재생 영상의 요청을 제어하기 어려워, 영상 URL을 제공하는 시점 자체를 늦추는 방식을 선택했습니다. 초기 렌더링에서는 src를 주입하지 않고, IntersectionObserver가 뷰포트 근접을 감지한 영상에만 src를 주입하는 지연 로딩 컴포넌트를 구현했습니다. Chrome DevTools Network 기준 초기 영상 전송량을 6.2MB에서 1.4MB로 78% 줄이고, 영상 요청 수를 21건에서 4건으로 줄였습니다.',
+      },
+    ],
+    // 공개 홈페이지 주소로 교체
+    demoLink: '',
+  },
+  {
+    title: 'dentOne 환자·주문 관리 서비스',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/dentOne.png',
+    skills: ['JavaScript', 'PHP'],
+    summary: [
+      '치과의 환자 정보 조회와 주문 업무를 지원하는 웹 서비스 유지보수 및 기능 개발',
+      '15분 무활동 시 토큰을 폐기하고 작업 화면을 잠그는 멀티 윈도우 기반 보안 흐름 구현',
+      'S3 Multipart API를 연동해 대용량 파일 업로드 기능 구현',
+      'Paddle 구독 결제 UI와 클라이언트 결제 흐름 구현 및 샌드박스 테스트',
+    ],
+    headCount: 3,
+    teamComposition: '프론트엔드 1 · 백엔드 1 · 디자이너 1',
+    duration: '2026.05 ~ 2026.07',
+    role: [
+      {
+        title: '멀티 윈도우 환경의 인증 기반 화면 잠금',
+        trouble:
+          '환자 정보 보호를 위해 15분 동안 사용하지 않으면 자동 로그아웃되도록 되어 있었지만, 다시 로그인한 뒤 기존 작업 상태가 유지되지 않아 환자 조회부터 다시 진행해야 하는 불편이 있었습니다. 또한 서버 요청 발생 여부만으로는 실제 사용자 활동을 정확히 판단하기 어려웠습니다.',
+        solve:
+          '마우스와 키보드 입력을 기준으로 15분 동안의 사용자 무활동을 감지하고, 로그아웃 대신 현재 작업 화면 위에 인증 기반 잠금 화면을 표시하도록 구현했습니다. 잠금 시 access token과 refresh token을 폐기해 DevTools로 잠금 UI를 제거하더라도 환자 데이터에 접근할 수 없게 처리했습니다. 여러 창에서 인증 상태가 달라지지 않도록 잠금과 해제 상태를 동기화하고, 재인증에 성공하면 기존 작업 화면을 이어서 사용할 수 있도록 구성했습니다.',
+      },
+      {
+        title: '대용량 파일의 안정적인 분할 업로드',
+        trouble:
+          '치과 주문 과정에서 대용량 파일을 업로드해야 했으며, 하나의 요청으로 전체 파일을 전송하면 네트워크 상태에 따라 업로드 실패 가능성이 커지고 진행 상태를 사용자에게 안내하기 어려웠습니다.',
+        solve:
+          'AWS S3 Multipart API를 연동해 파일을 여러 조각으로 나누어 업로드하고, 각 조각의 업로드 결과를 수집한 뒤 전체 업로드를 완료하도록 구현했습니다. 업로드 진행률과 처리 상태를 화면에 표시해 사용자가 전송 상태를 확인할 수 있도록 구성했습니다.',
+      },
+      {
+        title: 'Paddle 구독 결제 흐름 구현',
+        trouble:
+          '서비스 내에서 사용자가 구독 상품을 선택하고 결제를 진행한 뒤, 카드 변경이나 재결제 대기 상태까지 확인할 수 있는 클라이언트 결제 흐름이 필요했습니다.',
+        solve:
+          'Paddle을 연동해 구독 상품 선택과 결제 UI를 구현하고, 결제 결과에 따라 화면 상태가 변경되도록 클라이언트 흐름을 구성했습니다. 카드 변경 이후에는 즉시 성공으로 처리하지 않고 재결제 대기 상태를 표시했으며, Paddle 샌드박스 환경에서 결제 흐름을 테스트했습니다.',
+      },
+    ],
+    // 사내 서비스라면 githubLink와 demoLink를 생략
+  },
+  {
     title: '오늘의 날씨',
     tag: 'Frontend Development',
     thumbnail: '/icons/oneulWeather.svg',
@@ -111,6 +182,7 @@ const PROJECTS: IProjectItem[] = [
       '사이트 소개 랜딩 페이지의 디자인 및 퍼블리싱 전담',
     ],
     headCount: 5,
+    teamComposition: '프론트엔드 5',
     duration: '2024.07.25 ~ 2024.08.30',
     role: [
       {
@@ -288,6 +360,7 @@ const PROJECTS: IProjectItem[] = [
       'JavaScript의 Date 객체를 활용해 날짜 선택 검증 로직을 구현하여 구매 프로세스 구축',
     ],
     headCount: 1,
+    teamComposition: '웹 퍼블리셔 1',
     duration: '2023.09 ~ 2023.10',
     role: [
       {
@@ -308,7 +381,8 @@ const PROJECTS: IProjectItem[] = [
     summary: [
       'URL 쿼리 매개변수로 회원 등급을 판별하고, 등급별 맞춤 콘텐츠를 제공하는 리다이렉션 로직을 구현',
     ],
-    headCount: 1,
+    headCount: 2,
+    teamComposition: '웹 퍼블리셔 1 · 디자이너 1',
     duration: '2023.07 ~ 2023.11',
     role: [
       {

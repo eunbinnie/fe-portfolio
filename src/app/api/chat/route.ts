@@ -1,6 +1,10 @@
-// AI 채팅 비활성화 — 되살릴 때 아래 주석을 해제하세요.
+// AI 채팅 비활성화 — 되살릴 때 아래 주석을 해제하고 export {} 를 삭제하세요.
 // 함께 되살릴 것: src/app/layout.tsx 의 FloatingButton
 // 필요한 환경 변수: OPENAI_API_KEY, MY_AI_DATA
+//
+// export {} 가 필요한 이유: Next는 route.ts마다 타입 검사 파일을 생성하므로,
+// export가 없으면 빌드 시 "is not a module" 에러가 발생합니다.
+export {};
 
 // import OpenAI from 'openai';
 // import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
