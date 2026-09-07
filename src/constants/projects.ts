@@ -8,14 +8,14 @@ const PROJECTS: IProjectItem[] = [
     skills: [
       'React',
       'TypeScript',
-      'React Query',
+      'TanStack Query',
       'Zustand',
       'Tailwind CSS',
       'shadcn/ui',
     ],
     summary: [
       '20,555개 지역 검색 시 사용자 입력 최대 7초 지연, react-virtual 가상화로 즉시 반응하도록 개선',
-      '즐겨찾기 최대 24개 API 동시 호출 시 429 에러 발생, 지연 순차 호출 및 React Query Persist 60분 캐싱으로 에러 해결',
+      '즐겨찾기 최대 24개 API 동시 호출 시 429 에러 발생, 지연 순차 호출 및 TanStack Query Persist 60분 캐싱으로 에러 해결',
       '국토교통부·기상청 공공데이터 매칭으로 20,555개 검색 데이터 직접 구축, 좌표 미제공 지역 폴백 처리',
     ],
     headCount: 1,
@@ -33,7 +33,7 @@ const PROJECTS: IProjectItem[] = [
         trouble:
           '사용자가 즐겨찾기에 여러 지역을 등록한 경우, 페이지 로드 시 최대 24개의 날씨 API를 동시에 호출하면서 Rate Limit(429 Too Many Requests) 에러가 발생했습니다. 이로 인해 일부 지역의 날씨 정보가 표시되지 않는 문제가 있었습니다.',
         solve:
-          'API 호출을 300ms 간격으로 지연 순차 호출하도록 변경하고, React Query Persist를 활용해 60분간 데이터를 캐싱했습니다. 이를 통해 Rate Limit 에러를 방지하고, 사용자가 페이지를 재방문할 때 불필요한 API 호출을 줄여 서버 부하를 감소시켰습니다.',
+          'API 호출을 300ms 간격으로 지연 순차 호출하도록 변경하고, TanStack Query Persist를 활용해 60분간 데이터를 캐싱했습니다. 이를 통해 Rate Limit 에러를 방지하고, 사용자가 페이지를 재방문할 때 불필요한 API 호출을 줄여 서버 부하를 감소시켰습니다.',
       },
       {
         title: '공공데이터 매칭하여 20,555개 검색 데이터 구축',
@@ -94,7 +94,13 @@ const PROJECTS: IProjectItem[] = [
     title: 'GlobalNomad',
     tag: 'Frontend Development',
     thumbnail: '/icons/globalNomad.svg',
-    skills: ['Next.js', 'TypeScript', 'React Query', 'Axios', 'Tailwind CSS'],
+    skills: [
+      'Next.js',
+      'TypeScript',
+      'TanStack Query',
+      'Axios',
+      'Tailwind CSS',
+    ],
     summary: [
       'ReactQuill의 SSR 미지원 문제를 dynamic import로 해결하고, UI 전환의 일관성을 확보',
       '마크다운 에디터와 이미지 DnD, 우편번호 API 연동을 통해 체험 등록/수정 페이지 구현',
@@ -197,7 +203,7 @@ const PROJECTS: IProjectItem[] = [
       'Next.js',
       'TypeScript',
       'axios',
-      'React Query',
+      'TanStack Query',
       'Zustand',
       'Tailwind CSS',
     ],
@@ -221,7 +227,7 @@ const PROJECTS: IProjectItem[] = [
         trouble:
           '기존 React 프로젝트에서는 useState와 fetch만을 사용하여 상태를 관리하다 보니 불필요한 상태와 함수가 많아 가독성이 저하되었습니다. 또한, localStorage에 값을 저장하고 가져오는 로직이 과도하게 많아 유지보수가 어려웠습니다.',
         solve:
-          'API 호출 로직을 단순화하기 위해 React Query의 infinite queries를 도입하여 불필요한 다음 슬라이드 호출 로직을 제거하고 유지보수성을 개선했습니다. 또한, 상태 관리를 위해 Zustand를 적용하여 단일 store에서 모든 로직을 관리하고 불필요한 상태와 함수를 줄였습니다. 추가로, Persist 미들웨어를 활용해 store와 localStorage를 연동하여 중복된 localStorage 접근 로직을 제거했습니다. 그 결과, 상태 관리 코드의 LOC(Line of Code)를 약 30% 감소시켜 로직 복잡성을 줄이고 가독성을 향상시켰습니다.',
+          'API 호출 로직을 단순화하기 위해 TanStack Query의 infinite queries를 도입하여 불필요한 다음 슬라이드 호출 로직을 제거하고 유지보수성을 개선했습니다. 또한, 상태 관리를 위해 Zustand를 적용하여 단일 store에서 모든 로직을 관리하고 불필요한 상태와 함수를 줄였습니다. 추가로, Persist 미들웨어를 활용해 store와 localStorage를 연동하여 중복된 localStorage 접근 로직을 제거했습니다. 그 결과, 상태 관리 코드의 LOC(Line of Code)를 약 30% 감소시켜 로직 복잡성을 줄이고 가독성을 향상시켰습니다.',
       },
       {
         title: 'Swiper를 통해 API 데이터 동적 로딩 문제',
@@ -257,9 +263,9 @@ const PROJECTS: IProjectItem[] = [
       {
         title: '게시글 정렬 기준 변경 시 목록이 갱신되지 않는 문제',
         trouble:
-          'useGetPostsQuery({ keyword, sort })를 사용했지만, 정렬 기준이 변경되어도 React Query가 데이터를 다시 불러오지 않아, 화면에 이전 정렬 데이터가 그대로 남는 문제가 발생했습니다.',
+          'useGetPostsQuery({ keyword, sort })를 사용했지만, 정렬 기준이 변경되어도 TanStack Query가 데이터를 다시 불러오지 않아, 화면에 이전 정렬 데이터가 그대로 남는 문제가 발생했습니다.',
         solve:
-          'React Query의 refetchOnMountOrArgChange: true 옵션을 추가해 정렬 기준이 바뀔 때마다 자동으로 데이터를 다시 요청하도록 설정했습니다. 이 옵션을 명시함으로써 인자 변경 시 React Query가 리패치하도록 동작을 보장했습니다.',
+          'TanStack Query의 refetchOnMountOrArgChange: true 옵션을 추가해 정렬 기준이 바뀔 때마다 자동으로 데이터를 다시 요청하도록 설정했습니다. 이 옵션을 명시함으로써 인자 변경 시 TanStack Query가 리패치하도록 동작을 보장했습니다.',
       },
     ],
     githubLink: 'https://github.com/eunbinnie/react-board-app',
