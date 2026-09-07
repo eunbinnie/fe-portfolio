@@ -33,28 +33,51 @@ const ChatContainer = ({ active, onClose }: IModalProps) => {
   };
 
   const setSystemChat = (value: string) => {
-    setChatList((prev) => {
-      const updated = [...prev];
-      updated[updated.length - 1].system = value;
-      return updated;
-    });
+    setChatList((prev) =>
+      prev.map((chat, idx) =>
+        idx === prev.length - 1 ? { ...chat, system: value } : chat,
+      ),
+    );
   };
+
+  /**
+   * Chat Completions API는 상태를 저장하지 않으므로,
+   * 이전 대화를 role별 메시지로 변환해 매 요청마다 함께 전달합니다.
+   */
+  const toMessages = (chats: ChatData[]) =>
+    chats.flatMap((chat) => [
+      ...(chat.user ? [{ role: 'user' as const, content: chat.user }] : []),
+      ...(chat.system
+        ? [{ role: 'assistant' as const, content: chat.system }]
+        : []),
+    ]);
 
   const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = async (
     e,
   ) => {
     e.preventDefault();
-    setChatList((prev) => [...prev, { user: value, system: '' }]);
+
+    const question = value.trim();
+
+    if (!question) {
+      return;
+    }
+
+    setChatList((prev) => [...prev, { user: question, system: '' }]);
     setValue('');
     try {
-      const res = (await axios.post('/api/chat', { question: value })).data
-        .choices[0].message.content;
+      const messages = [
+        ...toMessages(chatList),
+        { role: 'user' as const, content: question },
+      ];
+      const res = (await axios.post('/api/chat', { messages })).data.choices[0]
+        .message.content;
       const location = await getLocationInfo();
       setSystemChat(res);
       await addDoc(collection(db, 'portfolio'), {
         location: location,
         date: new Date(),
-        user: value,
+        user: question,
         system: res,
       });
     } catch (error) {
