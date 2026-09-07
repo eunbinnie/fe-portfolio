@@ -27,7 +27,10 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
             <span className="basis-20 font-semibold sm:basis-[90px]">
               Team Size:
             </span>
-            <span className="break-all">{data.headCount}인</span>
+            <span className="break-keep">
+              {data.headCount}인
+              {data.teamComposition && ` (${data.teamComposition})`}
+            </span>
           </li>
           <li className="flex flex-wrap items-center">
             <span className="basis-20 font-semibold sm:basis-[90px]">
@@ -35,18 +38,20 @@ const ProjectInfo = ({ data }: { data: IProjectItem }) => {
             </span>
             <span className="break-all">{data.duration}</span>
           </li>
-          <li className="flex flex-wrap items-center">
-            <span className="basis-20 font-semibold sm:basis-[90px]">
-              Website:
-            </span>
-            <Link
-              href={data.demoLink}
-              target="_blank"
-              className="break-all underline transition-all duration-1000 hover:text-white"
-            >
-              {data.demoLink}
-            </Link>
-          </li>
+          {data.demoLink && (
+            <li className="flex flex-wrap items-center">
+              <span className="basis-20 font-semibold sm:basis-[90px]">
+                Website:
+              </span>
+              <Link
+                href={data.demoLink}
+                target="_blank"
+                className="break-all underline transition-all duration-1000 hover:text-white"
+              >
+                {data.demoLink}
+              </Link>
+            </li>
+          )}
           {data.githubLink && (
             <li className="flex flex-wrap items-center">
               <span className="basis-20 font-semibold sm:basis-[90px]">

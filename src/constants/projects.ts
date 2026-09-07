@@ -2,6 +2,83 @@ import { IProjectItem } from '@/types/project.types';
 
 const PROJECTS: IProjectItem[] = [
   {
+    title: 'dentOne 홈페이지',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/dentOne.png',
+    skills: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'shadcn/ui',
+      'MDX',
+      'next-intl',
+      'Storybook',
+    ],
+    summary: [
+      'WordPress 기반 홈페이지를 Next.js·TypeScript로 마이그레이션하고 프론트엔드 개발 전담',
+      'MDX 이미지 크기를 자동으로 수집·주입해 매뉴얼 페이지 CLS 중앙값을 3.71에서 0.0001로 개선',
+      '뷰포트 근접 시점에 배경 영상 URL을 주입해 초기 영상 전송량을 6.2MB에서 1.4MB로 78% 감소',
+    ],
+    headCount: 3,
+    teamComposition: '프론트엔드 1 · 백엔드 1 · 디자이너 1',
+    duration: '2026.08 ~ 2026.09',
+    role: [
+      {
+        title: 'MDX 이미지 크기 자동 수집·주입으로 CLS 개선',
+        trouble:
+          'CDN URL로 참조하는 매뉴얼 이미지에 크기가 지정되지 않아, 이미지가 로드된 후 본문이 밀리며 사용자가 읽던 위치가 바뀌는 문제가 발생했습니다. 이미지 66장이 실린 매뉴얼 페이지를 네트워크 스로틀링 조건에서 측정한 결과, 표준 CLS 중앙값이 3.71로 나타났습니다.',
+        solve:
+          'MDX 문서 114편과 원격 이미지 429장의 크기를 수작업으로 관리하면 누락 위험이 있고, 빌드마다 전체 이미지를 내려받으면 시간과 네트워크 부담이 커진다고 판단했습니다. 이에 이미지 크기를 JSON으로 캐싱하고, MDX를 스캔해 캐시에 없는 이미지만 CDN에서 내려받아 크기를 수집하도록 구현했습니다. 렌더링 시 width와 height를 주입해 이미지 영역을 미리 확보하고, 크기를 못 구한 이미지는 일반 img로 폴백해 네트워크 없는 CI에서도 빌드가 깨지지 않게 했습니다. 수집 스크립트는 npm lifecycle의 predev·prebuild에 연결했습니다. 동일한 측정 조건에서 표준 CLS 중앙값을 3.71에서 0.0001로 개선했습니다.',
+      },
+      {
+        title: '배경 영상 지연 로딩으로 초기 전송량 감소',
+        trouble:
+          '자동 재생 배경 영상이 여러 섹션에 배치된 긴 랜딩 페이지에서 Chrome DevTools Network를 확인하던 중, 사용자가 스크롤하지 않아도 하단 영상까지 초기 진입 시 요청되는 현상을 발견했습니다. 반응형 대응으로 display:none 처리된 중복 사본까지 포함해 영상 요청이 21건 발생했습니다.',
+        solve:
+          'preload="none"만으로는 자동 재생 영상의 요청을 제어하기 어려워, 영상 URL을 제공하는 시점 자체를 늦추는 방식을 선택했습니다. 초기 렌더링에서는 src를 주입하지 않고, IntersectionObserver가 뷰포트 300px 이내 근접을 감지한 영상에만 src를 주입하는 지연 로딩 컴포넌트를 구현했습니다. display:none인 영상은 교차하지 않으므로 화면 폭에 따라 숨겨진 사본은 요청되지 않습니다. Chrome DevTools Network 기준 초기 영상 전송량을 6.2MB에서 1.4MB로 78% 줄이고, 영상 요청 수를 21건에서 4건으로 줄였습니다.',
+      },
+    ],
+    // demoLink: 'https://www.ezdentone.com',
+  },
+  {
+    title: 'dentOne 환자·주문 관리 서비스',
+    tag: 'Frontend Development',
+    thumbnail: '/icons/dentOne.png',
+    skills: ['JavaScript', 'PHP'],
+    summary: [
+      '치과와 기공소의 환자 정보 조회·주문 업무를 지원하는 웹 서비스 유지보수 및 기능 개발',
+      '15분 무활동 시 인증 토큰을 무효화하고 작업 화면을 잠그는 멀티 윈도우 기반 보안 흐름 구현',
+      '자체 업로드 API로 presigned URL을 발급받아 S3 Multipart 방식의 대용량 파일 분할 업로드 구현',
+      'Paddle 구독 결제·플랜 변경·해지 흐름과 결제 실패 처리 구현 및 샌드박스 테스트',
+    ],
+    headCount: 3,
+    teamComposition: '프론트엔드 1 · 백엔드 1 · 디자이너 1',
+    duration: '2026.05 ~ 2026.07',
+    role: [
+      {
+        title: '멀티 윈도우 환경의 인증 기반 화면 잠금',
+        trouble:
+          '환자 정보 보호를 위해 15분 동안 사용하지 않으면 자동 로그아웃되도록 되어 있었지만, 다시 로그인한 뒤 기존 작업 상태가 유지되지 않아 환자 조회부터 다시 진행해야 하는 불편이 있었습니다. 또한 서버 요청 발생 여부만으로는 실제 사용자 활동을 정확히 판단하기 어려웠고, 메인 창과 팝업 창이 함께 열리는 구조여서 창마다 잠금 상태가 달라질 수 있었습니다.',
+        solve:
+          '마우스·키보드·스크롤·클릭 등 실제 입력 이벤트를 기준으로 15분 무활동을 감지하고, 로그아웃 대신 현재 작업 화면 위에 계정 비밀번호 재인증 잠금 화면을 표시하도록 구현했습니다. 잠금 시점에 인증 서버로 access token과 refresh token을 무효화하고 서버 세션에 잠금 플래그를 세워, DevTools로 잠금 UI를 제거하거나 페이지를 새로고침해도 환자 데이터 조회와 토큰 재발급이 모두 차단되도록 했습니다. 잠금 UI는 MutationObserver로 삭제·숨김 시도를 감시해 복구하고, 잠금 중 발생한 401 응답은 재발급 대신 잠금 화면을 유지하도록 처리했습니다. 여러 창의 잠금·해제 상태는 localStorage 이벤트로 동기화하고, 창 생존 신호(heartbeat)를 기준으로 비밀번호 입력 창을 한 곳만 선출해 나머지 창에는 안내 화면만 노출했습니다. 재인증에 성공하면 기존 작업 화면을 그대로 이어서 사용할 수 있습니다.',
+      },
+      {
+        title: '대용량 파일의 안정적인 분할 업로드',
+        trouble:
+          '치과 주문 과정에서 대용량 파일을 업로드해야 했으며, 하나의 요청으로 전체 파일을 전송하면 네트워크 상태에 따라 업로드 실패 가능성이 커지고 진행 상태를 사용자에게 안내하기 어려웠습니다.',
+        solve:
+          '자체 업로드 API(init / part-url / complete / abort)를 통해 S3 Multipart 업로드 세션을 생성하고, 서버가 지정한 파트 크기로 파일을 나눠 파트별 presigned URL로 S3에 직접 PUT 업로드하도록 구현했습니다. 각 파트의 ETag를 수집해 complete 단계에서 하나의 파일로 조립하고, 중간 실패 시 abort를 호출해 남은 업로드 세션을 정리했습니다. 업로드된 파트 수를 기준으로 진행률을 표시하되 조립 완료 전에는 100%가 표시되지 않도록 상한을 두었고, 소용량 파일은 단일 PUT 업로드 흐름으로 분기했습니다. 업로드는 먼저 임시 경로에 올린 뒤 주문 이력 생성 후 최종 경로로 이동시키고, 이동과 DB 확정이 모두 성공한 시점에만 화면에 노출되도록 구성했습니다.',
+      },
+      {
+        title: 'Paddle 구독 결제 및 구독 상태 관리 구현',
+        trouble:
+          '서비스 내에서 사용자가 구독 상품을 선택해 결제하고, 이후 플랜 변경·해지·결제 실패까지 구독 상태를 확인하고 처리할 수 있는 흐름이 필요했습니다.',
+        solve:
+          'Paddle.js를 연동해 구독 상품 선택과 결제 UI를 구현하고, 결제 완료·실패 이벤트에 따라 화면 상태가 변경되도록 클라이언트 흐름을 구성했습니다. 결제 실패 시에는 Paddle 에러 코드를 한국어·영어 안내 문구로 매핑해 원인을 알 수 있게 했고, 구독 해지 예약과 철회, 다운그레이드 예약과 취소, 결제 실패(past due) 상태의 카드 변경 후 재결제 대기 상태를 화면에 표시했습니다. PHP 측에서는 Paddle API를 호출해 가격·구독·카드 변경 트랜잭션 정보를 조회하고, API 키와 클라이언트 토큰 형식으로 샌드박스/운영 환경을 자동 판별하도록 구성한 뒤 샌드박스에서 결제 흐름을 테스트했습니다.',
+      },
+    ],
+  },
+  {
     title: '오늘의 날씨',
     tag: 'Frontend Development',
     thumbnail: '/icons/oneulWeather.svg',
@@ -45,6 +122,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://oneul-weather.vercel.app/',
   },
+  /* 이력서 미포함: 해핑고 (Happingo)
   {
     title: '해핑고 (Happingo)',
     tag: 'Frontend Development',
@@ -90,6 +168,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://happingo.app/',
   },
+  */
   {
     title: 'GlobalNomad',
     tag: 'Frontend Development',
@@ -109,6 +188,7 @@ const PROJECTS: IProjectItem[] = [
       '사이트 소개 랜딩 페이지의 디자인 및 퍼블리싱 전담',
     ],
     headCount: 5,
+    teamComposition: '프론트엔드 5',
     duration: '2024.07.25 ~ 2024.08.30',
     role: [
       {
@@ -148,6 +228,7 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/global-nomad',
     demoLink: 'https://global-nomad-ruddy.vercel.app/activity/register',
   },
+  /* 이력서 미포함: WekitBucket
   {
     title: 'WekitBucket',
     tag: 'Frontend Development',
@@ -195,6 +276,8 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/WeKitBucket',
     demoLink: 'https://wekitbucket.vercel.app/',
   },
+  */
+  /* 이력서 미포함: Fandom-K
   {
     title: 'Fandom-K',
     tag: 'Frontend Development',
@@ -247,6 +330,8 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/fandom-k-service',
     demoLink: 'https://fandom-k-service.vercel.app/mypage',
   },
+  */
+  /* 이력서 미포함: board-app
   {
     title: 'board-app',
     tag: 'Frontend Development',
@@ -271,6 +356,7 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/react-board-app',
     demoLink: 'https://react-board-app.vercel.app/',
   },
+  */
   {
     title: '그라운드시소',
     tag: 'Web Publishing',
@@ -280,6 +366,7 @@ const PROJECTS: IProjectItem[] = [
       'JavaScript의 Date 객체를 활용해 날짜 선택 검증 로직을 구현하여 구매 프로세스 구축',
     ],
     headCount: 1,
+    teamComposition: '웹 퍼블리셔 1',
     duration: '2023.09 ~ 2023.10',
     role: [
       {
@@ -300,7 +387,8 @@ const PROJECTS: IProjectItem[] = [
     summary: [
       'URL 쿼리 매개변수로 회원 등급을 판별하고, 등급별 맞춤 콘텐츠를 제공하는 리다이렉션 로직을 구현',
     ],
-    headCount: 1,
+    headCount: 2,
+    teamComposition: '웹 퍼블리셔 1 · 디자이너 1',
     duration: '2023.07 ~ 2023.11',
     role: [
       {
@@ -313,6 +401,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://feelkeen.com/',
   },
+  /* 이력서 미포함: 워클로
   {
     title: '워클로',
     tag: 'Web Publishing',
@@ -342,6 +431,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://worclo.co.kr/',
   },
+  */
 ];
 
 export const PROJECT_TOTAL_COUNT = PROJECTS.length;
