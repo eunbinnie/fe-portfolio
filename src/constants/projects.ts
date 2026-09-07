@@ -45,6 +45,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://oneul-weather.vercel.app/',
   },
+  /* 이력서 미포함: 해핑고 (Happingo)
   {
     title: '해핑고 (Happingo)',
     tag: 'Frontend Development',
@@ -90,6 +91,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://happingo.app/',
   },
+  */
   {
     title: 'GlobalNomad',
     tag: 'Frontend Development',
@@ -148,6 +150,7 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/global-nomad',
     demoLink: 'https://global-nomad-ruddy.vercel.app/activity/register',
   },
+  /* 이력서 미포함: WekitBucket
   {
     title: 'WekitBucket',
     tag: 'Frontend Development',
@@ -195,6 +198,8 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/WeKitBucket',
     demoLink: 'https://wekitbucket.vercel.app/',
   },
+  */
+  /* 이력서 미포함: Fandom-K
   {
     title: 'Fandom-K',
     tag: 'Frontend Development',
@@ -247,6 +252,8 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/fandom-k-service',
     demoLink: 'https://fandom-k-service.vercel.app/mypage',
   },
+  */
+  /* 이력서 미포함: board-app
   {
     title: 'board-app',
     tag: 'Frontend Development',
@@ -271,6 +278,7 @@ const PROJECTS: IProjectItem[] = [
     githubLink: 'https://github.com/eunbinnie/react-board-app',
     demoLink: 'https://react-board-app.vercel.app/',
   },
+  */
   {
     title: '그라운드시소',
     tag: 'Web Publishing',
@@ -313,6 +321,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://feelkeen.com/',
   },
+  /* 이력서 미포함: 워클로
   {
     title: '워클로',
     tag: 'Web Publishing',
@@ -342,6 +351,7 @@ const PROJECTS: IProjectItem[] = [
     ],
     demoLink: 'https://worclo.co.kr/',
   },
+  */
 ];
 
 export const PROJECT_TOTAL_COUNT = PROJECTS.length;
