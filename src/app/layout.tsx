@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import Background from '@/components/StarContainer';
-import FloatingButton from '@/components/button/FloatingButton';
+// import FloatingButton from '@/components/button/FloatingButton';
 import localFont from 'next/font/local';
 
 const pretendard = localFont({
@@ -114,7 +114,8 @@ export default function RootLayout({
         <>
           <Background />
           <main>{children}</main>
-          <FloatingButton />
+          {/* AI 채팅 비활성화 — 되살릴 때 위 import와 함께 주석 해제 */}
+          {/* <FloatingButton /> */}
         </>
       </body>
     </html>

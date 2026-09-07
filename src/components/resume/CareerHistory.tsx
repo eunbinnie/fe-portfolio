@@ -7,7 +7,7 @@ const CareerHistory = () => {
       {CAREER_HISTORY.map((data, idx) => (
         <li
           key={idx}
-          className="flex flex-col gap-2 text-sm sm:col-span-3 sm:grid sm:grid-cols-subgrid sm:items-center"
+          className="flex flex-col gap-4 text-sm sm:col-span-3 sm:grid sm:grid-cols-subgrid sm:items-center"
         >
           <span className="tabular-nums text-silver">{data.period}</span>
           <span className="font-medium text-white">{data.title}</span>
