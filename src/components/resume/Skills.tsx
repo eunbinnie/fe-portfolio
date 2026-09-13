@@ -2,7 +2,6 @@
 
 import SKILLS from '@/constants/skills';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const Skills = () => {
   return (
